@@ -1,0 +1,25 @@
+{
+    "name": "Framework do Pedro",
+    "description": "Versão 1.0 do framework com todo o crud e alguns helpers",
+    "authors": [
+        {
+            "name": "Pedro Lazari",
+            "email": "plazari96@gmail.com"
+        }
+    ],
+    "require" : {
+        "phpmailer/phpmailer" : "5.*",
+        "slim/slim" : "3.3.*",
+        "vlucas/phpdotenv": "^2.2",
+        "phpunit/phpunit": "^5.3"
+     },
+    "autoload" : {
+    	"psr-0" : {
+            "Conn" : "_app/",
+            "Helpers" : "_app/",
+            "Models" : "_app/",
+            "Own" : "_app/"
+
+        }
+    }
+}
