@@ -1,0 +1,24 @@
+[
+  {
+    "bandeira" : "Verde",
+    "mes"      : "Janeiro",
+    "ano"      : "2015",
+    "custo_100kwh" : "19,896"
+  },
+  {
+    "bandeira" : "amarela",
+    "mes"      : "fevereiro",
+    "custo_kwh" : "21,396"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "fevereiro",
+    "custo_kwh" : "22,896"
+  },
+  {
+    "bandeira" : "Verde",
+    "mes"      : "Abril",
+    "ano"      : "2016",
+    "custo_100kwh" : "19,896"
+  },
+]
