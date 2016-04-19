@@ -17,8 +17,9 @@ $App->get('/', function () {
 });
 
 
-$App->get('/books/{id}', function ($request, $response, $args) {
-    require 'themes/pedro/index.php';
+$App->get('/books', function ($request, $response, $args) use($App) {
+    //$App->render('themes/site/index.php');
+    require 'themes/site/index.php';
 });
 
 

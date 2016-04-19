@@ -10,6 +10,8 @@ Vamos aos principais comandos.
 ``php composer.phar update``
 
 
+# Links Gerais
+**Simulador:** https://www.aeseletropaulo.com.br/educacao-legislacao-seguranca/simuladores/conteudo/calcule-sua-conta
 
 **Desenvolvido com Pedro Framework**
 
