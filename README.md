@@ -8,9 +8,12 @@ Vamos aos principais comandos.
 ``php composer.phar install``
 
 ``php composer.phar update``
-Desenvolvido com Pedro Framework
 
-Desenvolvido por:
+
+
+**Desenvolvido com Pedro Framework**
+
+# Desenvolvido por:
 
 Pedro A. Lazari - RA: 703184-2
 
