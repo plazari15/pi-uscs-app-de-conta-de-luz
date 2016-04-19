@@ -12,8 +12,7 @@
         "slim/slim" : "3.3.*",
         "vlucas/phpdotenv": "^2.2",
         "phpunit/phpunit": "^5.3",
-        "algolia/algoliasearch-client-php" : "1.*",
-        "slim/php-view" : "2.*"
+        "algolia/algoliasearch-client-php" : "1.*"
      },
     "autoload" : {
     	"psr-0" : {
