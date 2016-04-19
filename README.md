@@ -12,6 +12,7 @@ Vamos aos principais comandos.
 
 # Links Gerais
 **Simulador:** https://www.aeseletropaulo.com.br/educacao-legislacao-seguranca/simuladores/conteudo/calcule-sua-conta
+**Histórico de Bandeiras:** http://www.edp.com.br/distribuicao/edp-bandeirante/informacoes/Paginas/Bandeiras-Tarifarias.aspx#0
 
 **Desenvolvido com Pedro Framework**
 
