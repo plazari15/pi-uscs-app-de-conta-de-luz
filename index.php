@@ -12,6 +12,7 @@ require_once ("_app/Config.inc.php");
 $App = new \Slim\App();
 
 $App->get('/', function () {
+    echo 'Olá mundo!';
 
 });
 
