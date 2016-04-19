@@ -3,9 +3,9 @@
 <script>
     var client = $.algolia.Client('678TC4WEYV', '0f9edc3a259de0b4d22ed10cabdd8ac8');
     var index = client.initIndex('bandeiras');
-    index.search('3.10', function searchDone(err, content) {
+   /* index.search('2015', function searchDone(err, content) {
         console.log(err, content)
-    });
+    }); */
 </script>
 <?php
 /**
@@ -23,4 +23,4 @@ $File = json_decode(file_get_contents("algolia/bandeiras.json", true));
 //$Index->addObjects($File);
 
 echo '<pre>';
-print_r($Index->search('3,10'));
+//print_r($Index->search('3,10'));
