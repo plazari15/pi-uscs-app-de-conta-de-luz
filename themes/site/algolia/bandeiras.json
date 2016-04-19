@@ -1,24 +1,98 @@
 [
   {
-    "bandeira" : "Verde",
+    "bandeira" : "vermelha",
     "mes"      : "Janeiro",
     "ano"      : "2015",
-    "custo_100kwh" : "19,896"
-  },
-  {
-    "bandeira" : "amarela",
-    "mes"      : "fevereiro",
-    "custo_kwh" : "21,396"
+    "custo_extra_kwh" : "0,030"
   },
   {
     "bandeira" : "vermelha",
-    "mes"      : "fevereiro",
-    "custo_kwh" : "22,896"
+    "mes"      : "Fevereiro",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Março",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Abril",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Maio",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Junho",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Julho",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Agosto",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Setembro",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Outubro",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Novembro",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Dezembro",
+    "ano"      : "2015",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Janeiro",
+    "ano"      : "2016",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "vermelha",
+    "mes"      : "Fevereiro",
+    "ano"      : "2016",
+    "custo_extra_kwh" : "0,030"
+  },
+  {
+    "bandeira" : "amarela",
+    "mes"      : "Março",
+    "ano"      : "2016",
+    "custo_extra_kwh" : "0,015"
   },
   {
     "bandeira" : "Verde",
     "mes"      : "Abril",
     "ano"      : "2016",
-    "custo_100kwh" : "19,896"
-  },
+    "custo_extra_kwh" : "0,000"
+  }
 ]
