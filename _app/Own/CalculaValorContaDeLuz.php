@@ -15,10 +15,12 @@ class CalculaValorContaDeLuz
 
     public function CalculaConta($Imposto, $Kwh, $Bandeira, $Tipo)
     {
+        $this->Bandeira = $Bandeira;
+        $this->TipoTarifa = $Tipo;
         if($Imposto){
             //Calcula conta de luz com imposto
         }else{
-            return $this->CalculaContaDeLuzSemImposto('1', 100, 1, 1, false);
+            return $this->CalculaContaDeLuzSemImposto();
         }
     }
 
@@ -36,43 +38,58 @@ class CalculaValorContaDeLuz
      * @param $Tipo
      */
     protected function CalculaContaDeLuzSemImposto( ){
-
+        return $this->SomaKwhComBandeira();
     }
 
     /**
-     * Calcula o Valor do Kwh Mais o Valor da Bandeira em vigor
-     * @param $Bandeira
-     * @return string
+     * Obtem o valor do Kwh de acordo com o tipo de tarifa. Esse é um dado fixo!
      */
-    protected function ValorKwhComBandeira($Bandeira){
-        switch ($Bandeira){
-            case '1':
-                //bandeira Verde
-                $Kwh = '0.019083';
-                $ValorBandeira = '0.00';
-                return $Kwh + $ValorBandeira;
-            break;
-
-            case '2':
-                //bandeira Amarela
-                $Kwh = '0.019083';
-                $ValorBandeira = '0.00';
-                return $Kwh + $ValorBandeira;
-                break;
-
-            case '3':
-                //bandeira Vermelha
-                $Kwh = '0.019083';
-                $ValorBandeira = '0.00';
-                return $Kwh + $ValorBandeira;
-                break;
-        }
-    }
 
     protected function ValorKwh(){
         switch ($this->TipoTarifa){
             case 'residencial':
-                return 
+                return '0,1989';
+            break;
+
+            case 'comercial':
+                return '0,1989';
+                break;
+
+            case 'residencial_baixa':
+                return '0,0674';
+                break;
         }
     }
+
+    /**
+     * Obtem o valor do Kwh mais o valor da bandeira. O Valor do kWh é obtido na classe acima.
+     * @param $Bandeira
+     * @return string
+     */
+    protected function ValorBandeira(){
+        switch ($this->Bandeira){
+            case '1':
+                //bandeira Verde
+                $ValorBandeira = '0.00';
+            break;
+
+            case '2':
+                //bandeira Amarela
+                $ValorBandeira = '1.00';
+                break;
+
+            case '3':
+                //bandeira Vermelha
+                $ValorBandeira = '2.00';
+                break;
+        }
+
+        return $ValorBandeira;
+    }
+
+    protected function SomaKwhComBandeira(){
+        return $this->ValorKwh() + $this->ValorBandeira();
+    }
+
+
 }
