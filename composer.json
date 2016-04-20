@@ -19,7 +19,8 @@
             "Conn" : "_app/",
             "Helpers" : "_app/",
             "Models" : "_app/",
-            "Own" : "_app/"
+            "Own" : "_app/",
+            "Tests" : "_app/"
 
         }
     }

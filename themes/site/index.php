@@ -17,7 +17,7 @@
 
 
 
-$algolia = new \AlgoliaSearch\Client("678TC4WEYV", "0f9edc3a259de0b4d22ed10cabdd8ac8");
+$algolia = new \AlgoliaSearch\Client(getenv('ALGOLIA_APP'), getenv("ALGOLIA_SECRET"));
 $Index = $algolia->initIndex("bandeiras");
 $File = json_decode(file_get_contents("algolia/bandeiras.json", true));
 //$Index->addObjects($File);
