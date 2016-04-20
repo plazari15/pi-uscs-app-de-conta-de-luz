@@ -9,9 +9,9 @@ namespace Own;
 
 
 
-use AlgoliaSearch\Client;
+use AlgoliaSearch\Client as Algolia;
 
-class EnviaDadosDeCalculosParaAlgolia extends Client
+class EnviaDadosDeCalculosParaAlgolia extends Algolia
 {
     protected $UserID;
     protected $Bandeira;
@@ -34,9 +34,11 @@ class EnviaDadosDeCalculosParaAlgolia extends Client
         $this->Kwh = $Kwh;
         $this->Valor = $Valor;
 
-        return true;
-        
-        
+        if($this->EnviaOsDadosViaAPiAlgolia()){
+            return true;
+        }
+
+        return false;
 
     }
 
@@ -46,7 +48,18 @@ class EnviaDadosDeCalculosParaAlgolia extends Client
 
     protected function EnviaOsDadosViaAPiAlgolia()
     {
+        $Cliente = $this->initIndex('usuarios');
+        $Obj = $Cliente->addObject(array(
+            "Bandeira" => $this->Bandeira,
+            "kwh"      => $this->Kwh,
+            "Valor"    => $this->Valor,
 
+        ));
+
+        if(!empty($Obj['objectID'])){
+            return true;
+        }
+        return false;
     }
 
 }

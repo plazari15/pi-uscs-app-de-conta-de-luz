@@ -11,8 +11,9 @@
         "phpmailer/phpmailer" : "5.*",
         "slim/slim" : "3.3.*",
         "vlucas/phpdotenv": "^2.2",
-        "phpunit/phpunit": "^5.3",
-        "algolia/algoliasearch-client-php" : "1.*"
+        "phpunit/phpunit": "5.*",
+        "algolia/algoliasearch-client-php" : "1.*",
+        "fzaninotto/faker": "^1.5"
      },
     "autoload" : {
     	"psr-0" : {
