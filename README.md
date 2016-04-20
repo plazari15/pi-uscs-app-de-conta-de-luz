@@ -16,6 +16,15 @@ Vamos aos principais comandos.
 
 **Desenvolvido com Pedro Framework**
 
+# Fazendo um teste unitário
+A pasta Tests contém todos os testes unitários de todas as nossas classes. 
+
+Execute o comando no terminal para rodar os testes
+
+``./vendor/bin/phpunit --colors Tests``
+
+Este comando deve ser executado pelo terminal na raiz do site
+
 # Integrantes
 
 **Desenvolvimento PHP:** Pedro A. Lazari - RA: 703184-2
