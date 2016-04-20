@@ -18,13 +18,14 @@ Vamos aos principais comandos.
 
 # Integrantes
 
-*Desenvolvimento PHP:* Pedro A. Lazari - RA: 703184-2
-*Wireframe e Editor-Chefe HTML:*Matheus Milani - RA:
+**Desenvolvimento PHP:** Pedro A. Lazari - RA: 703184-2
 
-*Desenvolvimento HTML:* Gustavo M. Frias - RA: 
+**Wireframe e Editor-Chefe HTML:**Matheus Milani - RA:
 
-*Desenvolvimento HTML:*Renam Lima - RA:
+**Desenvolvimento HTML:** Gustavo M. Frias - RA: 
 
-*Desenvolvimento HTML:*Murilo ... - RA: 
+**Desenvolvimento HTML:**Renam Lima - RA:
+
+**Desenvolvimento HTML:**Murilo ... - RA: 
 
 
