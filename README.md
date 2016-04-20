@@ -16,16 +16,15 @@ Vamos aos principais comandos.
 
 **Desenvolvido com Pedro Framework**
 
-# Desenvolvido por:
+# Integrantes
 
-Pedro A. Lazari - RA: 703184-2
+*Desenvolvimento PHP:* Pedro A. Lazari - RA: 703184-2
+*Wireframe e Editor-Chefe HTML:*Matheus Milani - RA:
 
-Gustavo M. Frias - RA: 
+*Desenvolvimento HTML:* Gustavo M. Frias - RA: 
 
-Renam Lima - RA:
+*Desenvolvimento HTML:*Renam Lima - RA:
 
-Matheus Milani - RA:
-
-Murilo ... - RA: 
+*Desenvolvimento HTML:*Murilo ... - RA: 
 
 
