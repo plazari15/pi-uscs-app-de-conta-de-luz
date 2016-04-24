@@ -11,15 +11,27 @@ use PHPUnit_Framework_TestCase as PHPUnit;
 class CalculaValorContaDeLuzTest extends PHPUnit
 {
 
-    public function testCalculaSemImposto(){
+    /**
+     * Testes residenciais
+     */
+    public function testCalculaSemImpostoBandeiraVerdeResidencial(){
         $Calcula  = new CalculaValorContaDeLuz();
-        $this->assertEquals('19,89', $Calcula->CalculaConta(false,  '100', '1', 'residencial'));
+        $this->assertEquals('43,60', $Calcula->CalculaConta(false,  '100', '1', 'residencial'));
     }
 
 
-    public function testCalculaComImposto(){
+    public function testCalculaSemImpostoBandeiraAmarelaResidencial(){
         $Calcula  = new CalculaValorContaDeLuz();
-        $this->assertEquals('19,89', $Calcula->CalculaConta(false,  '100', '1', 'residencial'));
+        $this->assertEquals('45,10', $Calcula->CalculaConta(false,  '100', '2', 'residencial'));
     }
+
+    public function testCalculaSemImpostoBandeiraVermelhaResidencial(){
+        $Calcula  = new CalculaValorContaDeLuz();
+        $this->assertEquals('48,10', $Calcula->CalculaConta(false,  '100', '3', 'residencial'));
+    }
+
+    /**
+     * Testes em Instalações Comerciais
+     */
 
 }

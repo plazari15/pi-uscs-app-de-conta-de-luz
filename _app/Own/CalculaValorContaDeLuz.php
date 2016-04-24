@@ -50,7 +50,7 @@ class CalculaValorContaDeLuz
      * Obtem o valor do Kwh de acordo com o tipo de tarifa. Esse é um dado fixo!
      */
 
-    protected function ValorKwh(){
+    protected function TarifaUsoSistemaDistribuicao(){
         switch ($this->TipoTarifa){
             case 'residencial':
                 return '0.1989';
@@ -61,7 +61,23 @@ class CalculaValorContaDeLuz
                 break;
 
             case 'residencial_baixa':
-                return '0.0674';
+                return '0.1156';
+                break;
+        }
+    }
+
+    protected function TarifaDeEnergia(){
+        switch ($this->TipoTarifa){
+            case 'residencial':
+                return '0.2371';
+                break;
+
+            case 'comercial':
+                return '0.2371';
+                break;
+
+            case 'residencial_baixa':
+                return '0.1422';
                 break;
         }
     }
@@ -80,22 +96,22 @@ class CalculaValorContaDeLuz
 
             case '2':
                 //bandeira Amarela
-                $ValorBandeira = '1.00';
+                $ValorBandeira = '0.015';
                 break;
 
             case '3':
                 //bandeira Vermelha
-                $ValorBandeira = '2.00';
+                $ValorBandeira = '0.045';
                 break;
         }
 
         return $ValorBandeira;
     }
 
+
     protected function SomaKwhComBandeira(){
-        $Soma = ($this->ValorKwh() + $this->ValorBandeira());
+        $Soma = ($this->TarifaUsoSistemaDistribuicao() + $this->TarifaDeEnergia() + $this->ValorBandeira());
         return $Soma;
     }
-
 
 }
