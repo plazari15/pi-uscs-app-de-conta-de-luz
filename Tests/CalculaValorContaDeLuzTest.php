@@ -13,7 +13,13 @@ class CalculaValorContaDeLuzTest extends PHPUnit
 
     public function testCalculaSemImposto(){
         $Calcula  = new CalculaValorContaDeLuz();
-        $this->assertEquals('0.00', $Calcula->CalculaConta(false,  '1', '1', 'residencial'));
+        $this->assertEquals('19,89', $Calcula->CalculaConta(false,  '100', '1', 'residencial'));
+    }
+
+
+    public function testCalculaComImposto(){
+        $Calcula  = new CalculaValorContaDeLuz();
+        $this->assertEquals('19,89', $Calcula->CalculaConta(false,  '100', '1', 'residencial'));
     }
 
 }

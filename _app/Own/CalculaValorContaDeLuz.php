@@ -15,6 +15,7 @@ class CalculaValorContaDeLuz
 
     public function CalculaConta($Imposto, $Kwh, $Bandeira, $Tipo)
     {
+        $this->Kwh = $Kwh;
         $this->Bandeira = $Bandeira;
         $this->TipoTarifa = $Tipo;
         if($Imposto){
@@ -38,7 +39,11 @@ class CalculaValorContaDeLuz
      * @param $Tipo
      */
     protected function CalculaContaDeLuzSemImposto( ){
-        return $this->SomaKwhComBandeira();
+        $Result = ($this->Kwh * $this->SomaKwhComBandeira());
+
+        $Result = number_format($Result, '2', ',', ' ');
+
+        return $Result;
     }
 
     /**
@@ -48,15 +53,15 @@ class CalculaValorContaDeLuz
     protected function ValorKwh(){
         switch ($this->TipoTarifa){
             case 'residencial':
-                return '0,1989';
+                return '0.1989';
             break;
 
             case 'comercial':
-                return '0,1989';
+                return '0.1989';
                 break;
 
             case 'residencial_baixa':
-                return '0,0674';
+                return '0.0674';
                 break;
         }
     }
@@ -88,7 +93,8 @@ class CalculaValorContaDeLuz
     }
 
     protected function SomaKwhComBandeira(){
-        return $this->ValorKwh() + $this->ValorBandeira();
+        $Soma = ($this->ValorKwh() + $this->ValorBandeira());
+        return $Soma;
     }
 
 
