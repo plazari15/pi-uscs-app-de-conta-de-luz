@@ -98,7 +98,12 @@ class CalculaValorContaDeLuz
                 break;
 
             case '3':
-                //bandeira Vermelha
+                //bandeira Vermelha patamar 1
+                $ValorBandeira = '0.030';
+                break;
+
+            case '4':
+                //bandeira Vermelha patamar 2
                 $ValorBandeira = '0.045';
                 break;
         }

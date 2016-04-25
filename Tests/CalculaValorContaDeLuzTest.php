@@ -27,9 +27,16 @@ class CalculaValorContaDeLuzTest extends PHPUnit
         $this->assertEquals('45,10', $Calcula->RetornaValores());
     }
 
-    public function testCalculaSemImpostoBandeiraVermelhaResidencial(){
+    public function testCalculaSemImpostoBandeiraVermelhaPatamar1Residencial(){
         $Calcula  = new CalculaValorContaDeLuz();
         $Calcula->CalculaConta( '100', '3', 'residencial');
+        $this->assertEquals('46,60', $Calcula->RetornaValores());
+    }
+
+    public function testCalculaSemImpostoBandeiraVermelhaPatamar2Residencial()
+    {
+        $Calcula = new CalculaValorContaDeLuz();
+        $Calcula->CalculaConta('100', '4', 'residencial');
         $this->assertEquals('48,10', $Calcula->RetornaValores());
     }
 
@@ -48,9 +55,15 @@ class CalculaValorContaDeLuzTest extends PHPUnit
         $this->assertEquals('45,10', $Calcula->RetornaValores());
     }
 
-    public function testCalculaSemImpostoBandeiraVermelhaComercio(){
+    public function testCalculaSemImpostoBandeiraVermelhaPatamar1Comercio(){
         $Calcula = new CalculaValorContaDeLuz();
         $Calcula->CalculaConta('100', 3, 'comercial');
+        $this->assertEquals('46,60', $Calcula->RetornaValores());
+    }
+
+    public function testCalculaSemImpostoBandeiraVermelhaPatamar2Comercio(){
+        $Calcula = new CalculaValorContaDeLuz();
+        $Calcula->CalculaConta('100', 4, 'comercial');
         $this->assertEquals('48,10', $Calcula->RetornaValores());
     }
 
@@ -75,9 +88,15 @@ class CalculaValorContaDeLuzTest extends PHPUnit
     }
 
 
-    public function testCalculaSemImpostoBandeiraVermelhaBaixaRenda(){
+    public function testCalculaSemImpostoBandeiraVermelhaPatamar1BaixaRenda(){
         $Calcula = new CalculaValorContaDeLuz();
         $Calcula->CalculaConta('100', 3, 'residencial_baixa');
+        $this->assertEquals('28,78', $Calcula->RetornaValores());
+    }
+
+    public function testCalculaSemImpostoBandeiraVermelhaPatamar2BaixaRenda(){
+        $Calcula = new CalculaValorContaDeLuz();
+        $Calcula->CalculaConta('100', 4, 'residencial_baixa');
         $this->assertEquals('30,28', $Calcula->RetornaValores());
     }
 
