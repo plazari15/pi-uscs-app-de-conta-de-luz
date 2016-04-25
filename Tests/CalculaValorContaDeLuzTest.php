@@ -63,14 +63,14 @@ class CalculaValorContaDeLuzTest extends PHPUnit
 
     public function testCalculaSemImpostoBandeiraAmarelaBaixaRenda(){
         $Calcula = new CalculaValorContaDeLuz();
-        $this->assertEquals('28,78', $Calcula->CalculaConta(false, '100', 2, 'residencial_baixa'));
+        $this->assertEquals('27,28', $Calcula->CalculaConta(false, '100', 2, 'residencial_baixa'));
     }
 
 
-//    public function testCalculaSemImpostoBandeiraVermelhaBaixaRenda(){
-//        $Calcula = new CalculaValorContaDeLuz();
-//        $this->assertEquals('25,78', $Calcula->CalculaConta(false, '100', 3, 'residencial_baixa'));
-//    }
+    public function testCalculaSemImpostoBandeiraVermelhaBaixaRenda(){
+        $Calcula = new CalculaValorContaDeLuz();
+        $this->assertEquals('30,28', $Calcula->CalculaConta(false, '100', 3, 'residencial_baixa'));
+    }
 
 
 
