@@ -16,18 +16,21 @@ class CalculaValorContaDeLuzTest extends PHPUnit
      */
     public function testCalculaSemImpostoBandeiraVerdeResidencial(){
         $Calcula  = new CalculaValorContaDeLuz();
-        $this->assertEquals('43,60', $Calcula->CalculaConta(false,  '100', '1', 'residencial'));
+        $Calcula->CalculaConta('100', '1', 'residencial');
+        $this->assertEquals('43,60', $Calcula->RetornaValores());
     }
 
 
     public function testCalculaSemImpostoBandeiraAmarelaResidencial(){
         $Calcula  = new CalculaValorContaDeLuz();
-        $this->assertEquals('45,10', $Calcula->CalculaConta(false,  '100', '2', 'residencial'));
+        $Calcula->CalculaConta( '100', '2', 'residencial');
+        $this->assertEquals('45,10', $Calcula->RetornaValores());
     }
 
     public function testCalculaSemImpostoBandeiraVermelhaResidencial(){
         $Calcula  = new CalculaValorContaDeLuz();
-        $this->assertEquals('48,10', $Calcula->CalculaConta(false,  '100', '3', 'residencial'));
+        $Calcula->CalculaConta( '100', '3', 'residencial');
+        $this->assertEquals('48,10', $Calcula->RetornaValores());
     }
 
     /**
@@ -35,17 +38,20 @@ class CalculaValorContaDeLuzTest extends PHPUnit
      */
     public function testCalculaSemImpostoBandeiraVerdeComercio(){
         $Calcula = new CalculaValorContaDeLuz();
-        $this->assertEquals('43,60', $Calcula->CalculaConta(false, '100', 1, 'comercial'));
+        $Calcula->CalculaConta('100', 1, 'comercial');
+        $this->assertEquals('43,60', $Calcula->RetornaValores());
     }
 
     public function testCalculaSemImpostoBandeiraAmarelaComercio(){
         $Calcula = new CalculaValorContaDeLuz();
-        $this->assertEquals('45,10', $Calcula->CalculaConta(false, '100', 2, 'comercial'));
+        $Calcula->CalculaConta( '100', 2, 'comercial');
+        $this->assertEquals('45,10', $Calcula->RetornaValores());
     }
 
     public function testCalculaSemImpostoBandeiraVermelhaComercio(){
         $Calcula = new CalculaValorContaDeLuz();
-        $this->assertEquals('48,10', $Calcula->CalculaConta(false, '100', 3, 'comercial'));
+        $Calcula->CalculaConta('100', 3, 'comercial');
+        $this->assertEquals('48,10', $Calcula->RetornaValores());
     }
 
     /**
@@ -58,18 +64,21 @@ class CalculaValorContaDeLuzTest extends PHPUnit
      */
     public function testCalculaSemImpostoBandeiraVerdeBaixaRenda(){
         $Calcula = new CalculaValorContaDeLuz();
-        $this->assertEquals('25,78', $Calcula->CalculaConta(false, '100', 1, 'residencial_baixa'));
+        $Calcula->CalculaConta('100', 1, 'residencial_baixa');
+        $this->assertEquals('25,78', $Calcula->RetornaValores() );
     }
 
     public function testCalculaSemImpostoBandeiraAmarelaBaixaRenda(){
         $Calcula = new CalculaValorContaDeLuz();
-        $this->assertEquals('27,28', $Calcula->CalculaConta(false, '100', 2, 'residencial_baixa'));
+        $Calcula->CalculaConta('100', 2, 'residencial_baixa');
+        $this->assertEquals('27,28', $Calcula->RetornaValores());
     }
 
 
     public function testCalculaSemImpostoBandeiraVermelhaBaixaRenda(){
         $Calcula = new CalculaValorContaDeLuz();
-        $this->assertEquals('30,28', $Calcula->CalculaConta(false, '100', 3, 'residencial_baixa'));
+        $Calcula->CalculaConta('100', 3, 'residencial_baixa');
+        $this->assertEquals('30,28', $Calcula->RetornaValores());
     }
 
 

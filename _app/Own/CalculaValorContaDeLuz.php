@@ -12,17 +12,15 @@ class CalculaValorContaDeLuz
     protected $Kwh;
     protected $TipoTarifa;
     protected $Bandeira;
+    protected $Retorna;
 
-    public function CalculaConta($Imposto, $Kwh, $Bandeira, $Tipo)
+    public function CalculaConta($Kwh, $Bandeira, $Tipo)
     {
         $this->Kwh = $Kwh;
         $this->Bandeira = $Bandeira;
         $this->TipoTarifa = $Tipo;
-        if($Imposto){
-            //Calcula conta de luz com imposto
-        }else{
-            return $this->CalculaContaDeLuzSemImposto();
-        }
+       $this->CalculaContaDeLuzSemImposto();
+
     }
 
     public function RetornaValores(){
@@ -43,7 +41,7 @@ class CalculaValorContaDeLuz
 
         $Result = number_format($Result, '2', ',', ' ');
 
-        return $Result;
+        $this->Retorna = $Result;
     }
 
     /**
