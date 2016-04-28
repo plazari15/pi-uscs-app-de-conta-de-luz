@@ -27,6 +27,12 @@ class CalculaValorContaDeLuz
         return $this->Retorna;
     }
 
+    public function RetornaSemFormato(){
+        $Result = ($this->Kwh * $this->SomaKwhComBandeira());
+
+        return $Result;
+    }
+
     /**************************************
      *********  PROTECTED METHODS  ********
      **************************************/
@@ -39,7 +45,7 @@ class CalculaValorContaDeLuz
     protected function CalculaContaDeLuzSemImposto( ){
         $Result = ($this->Kwh * $this->SomaKwhComBandeira());
         $Result = round($Result, 2);
-        $Result = number_format($Result, '2', ',', ' ');
+        $Result = number_format($Result, '2', ',', '.');
 
         $this->Retorna = $Result;
     }

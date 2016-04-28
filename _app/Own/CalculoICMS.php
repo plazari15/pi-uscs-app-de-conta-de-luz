@@ -26,7 +26,7 @@ class CalculoICMS extends CalculaValorContaDeLuz
     function __construct($Kwh, $Bandeira, $Tipo)
     {
         $this->CalculaConta($Kwh, $Bandeira, $Tipo);
-        $this->ValorConta = $this->RetornaValores();
+        $this->ValorConta = $this->RetornaSemFormato();
     }
 
     /**
@@ -56,7 +56,7 @@ class CalculoICMS extends CalculaValorContaDeLuz
      */
     public function ExibeICMS(){
         $ResultadoContaDeLuz = ($this->ValorConta + $this->CalculaValorComImposto());
-        $ResultadoContaDeLuz = number_format($ResultadoContaDeLuz, '2', ',', ' ');
+        $ResultadoContaDeLuz = number_format($ResultadoContaDeLuz, '2', ',', '.');
         return $ResultadoContaDeLuz;
     }
 
@@ -65,7 +65,7 @@ class CalculoICMS extends CalculaValorContaDeLuz
      * @return mixed
      */
     public function Exibe(){
-        return $this->ValorConta;
+        return number_format($this->ValorConta, '2', ',', '.');
     }
 
 }
