@@ -13,26 +13,33 @@ use AlgoliaSearch\Client as Algolia;
 
 class EnviaDadosDeCalculosParaAlgolia extends Algolia
 {
-    protected $UserID;
-    protected $Bandeira;
-    protected $Kwh;
-    protected $Valor;
+    private $Bandeira;
+    private $Mes;
+    private $DataProcessamento;
+    private $Kwh;
+    private $ValorConta;
+    private $ValorComICMS;
+    private $TipoConta;
 
     /**
      * EnviaDadosDeCalculosParaAlgolia constructor.
      * @param string $UserID
      */
-    function __construct($UserID)
+    function __construct($Bandeira, $Mes, $DataProcessamento, $Kwh, $ValorConta, $ValorICMS, $TipoConta)
     {
         parent::__construct(getenv('ALGOLIA_APP'), getenv("ALGOLIA_SECRET"));
-        $this->UserID = $UserID;
+        $this->Bandeira = $Bandeira;
+        $this->Mes = $Mes;
+        $this->DataProcessamento;
+        $this->Kwh = $Kwh;
+        $this->ValorConta = $ValorConta;
+        $this->ValorComICMS = $ValorICMS;
+        $TipoConta = $TipoConta;
+
     }
 
-    public function EnviaDadosParaAlgolia($Bndeira, $Kwh, $Valor)
+    public function Resultado()
     {
-        $this->Bandeira = $Bndeira;
-        $this->Kwh = $Kwh;
-        $this->Valor = $Valor;
 
         if($this->EnviaOsDadosViaAPiAlgolia()){
             return true;
@@ -46,13 +53,16 @@ class EnviaDadosDeCalculosParaAlgolia extends Algolia
      *********  PROTECTED METHODS  ********
      **************************************/
 
-    protected function EnviaOsDadosViaAPiAlgolia()
+    private function EnviaOsDadosViaAPiAlgolia()
     {
-        $Cliente = $this->initIndex('usuarios');
+        $Cliente = $this->initIndex('calculos');
         $Obj = $Cliente->addObject(array(
-            "Bandeira" => $this->Bandeira,
-            "kwh"      => $this->Kwh,
-            "Valor"    => $this->Valor,
+            "Mes" => $this->Mes,
+            "Bandeira"      => $this->Bandeira,
+            "DataProcessamento"    => $this->DataProcessamento,
+            "kwh"             => $this->Kwh,
+            "ValorConta"   => $this->ValorConta,
+            "ValorComICMS" => $this->ValorComICMS,
 
         ));
 
