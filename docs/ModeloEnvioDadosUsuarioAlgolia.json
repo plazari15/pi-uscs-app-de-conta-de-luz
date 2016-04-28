@@ -1,0 +1,17 @@
+/**
+ * Created by pedro on
+ * Esse arquivo é um modelo do que será enviado a ALGOLIA se o usuário aceitar enviar
+ * os dados dele para uso de todos os usuários do sistemas
+ */
+
+[
+  {
+    "mes" : "Janeiro",
+    "bandeira" : "1", //vai pelo ID
+    "kwh" : "100",
+    "data_processamento" : "01/01/2016",
+    "valor_conta" : "42,50",
+    "valor_conta_ICMS" : "54,90"
+    "tipo_conta" : "residencial" //Se a conta é residencial, comercial ou baixa renda
+  }
+]

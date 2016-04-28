@@ -54,10 +54,18 @@ class CalculoICMS extends CalculaValorContaDeLuz
      * Exibe o valor da conta de luz, e faz um number format para formatar o valor recebido.
      * @return string
      */
-    public function Exibe(){
+    public function ExibeICMS(){
         $ResultadoContaDeLuz = ($this->ValorConta + $this->CalculaValorComImposto());
         $ResultadoContaDeLuz = number_format($ResultadoContaDeLuz, '2', ',', ' ');
         return $ResultadoContaDeLuz;
+    }
+
+    /**
+     * Retorna o valor da conta de luz com ICMS
+     * @return mixed
+     */
+    public function Exibe(){
+        return $this->ValorConta;
     }
 
 }
