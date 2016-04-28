@@ -17,8 +17,12 @@ class EnviaDadosDeCalculosAlgoliaTest extends PHPUnit
      * Este teste envia os dados do usuario para o sistema de busca caso o mesmo autorize.
      */
     public function testEnviaDadosUsuarioAutoriza(){
-        $Calculo = new CalculoICMS('100', '1', 'residencial');
-        $Class = new EnviaDadosDeCalculosParaAlgolia('1', 'Janeiro', date('d/m/Y'), '100', $Calculo->Exibe(), $Calculo->ExibeICMS(), 'residencial');
+        $generator = \Faker\Factory::create();
+        $faker = new \Faker\Provider\Base($generator);
+        $kwh = $faker->randomNumber(4);
+        //$kwh = 399;
+        $Calculo = new CalculoICMS($kwh, '1', 'residencial');
+        $Class = new EnviaDadosDeCalculosParaAlgolia('1', 'Janeiro', date('d-m-Y'),$kwh, $Calculo->Exibe(), $Calculo->ExibeICMS(), 'residencial');
         $this->assertTrue( $Class->Resultado() );
     }
 }
