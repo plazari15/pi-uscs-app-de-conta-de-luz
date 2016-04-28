@@ -69,3 +69,5 @@ class CalculoICMS extends CalculaValorContaDeLuz
     }
 
 }
+
+//Teste
