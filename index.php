@@ -20,9 +20,11 @@ $App->get('/', function () {
 });
 
 
-$App->get('/books/{name}', function ($request, $response, $args) {
+$App->get('/books', function ($request, $response, $args) {
     require 'themes/site/index.php';
 });
 
 
 $App->run();
+
+
