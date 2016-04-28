@@ -18,9 +18,9 @@
 
 
 $algolia = new \AlgoliaSearch\Client(getenv('ALGOLIA_APP'), getenv("ALGOLIA_SECRET"));
-$Index = $algolia->initIndex("bandeiras");
+$Index = $algolia->initIndex("calculos");
 $File = json_decode(file_get_contents("algolia/bandeiras.json", true));
 //$Index->addObjects($File);
 
 echo '<pre>';
-//print_r($Index->search('3,10'));
+print_r($Index->search('Janeiro'));
