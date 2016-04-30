@@ -17,8 +17,8 @@ define('MAILPORT', '587');
 define('MAILHOST', 'mail.cloudsp.com.br');
 
 // DEFINE BASE DO SITE ##############################
-define('HOME', 'http://localhost/pi');
-define('THEME', 'rer');
+define('HOME', 'http://localhost:8080/pi-uscs-app-de-conta-de-luz');
+define('THEME', 'site');
 define('INCLUDE_PATH', HOME . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . THEME);
 define('REQUIRE_PATH', 'themes' . DIRECTORY_SEPARATOR . THEME);
 
