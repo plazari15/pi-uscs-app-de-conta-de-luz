@@ -2,7 +2,7 @@
   $(function(){
 
     $('.button-collapse').sideNav();
-    //$('.parallax').parallax();
+    $('.parallax').parallax();
     $('.slider').slider();
 
   }); // end of document ready

@@ -19,6 +19,11 @@ $App->get('/', function () {
 });
 
 
+$App->get('/sobre/quem-somos', function () {
+    Render('quem_somos.php');
+});
+
+
 $App->get('/books', function ($request, $response, $args) {
     Render('index.php');
 });
