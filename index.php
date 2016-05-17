@@ -15,13 +15,12 @@ $App = new \Slim\App();
 
 //Apresentando as rotas do site
 $App->get('/', function () {
-    echo 'Olá mundo!';
-
+    Render('index.php');
 });
 
 
 $App->get('/books', function ($request, $response, $args) {
-    require 'themes/site/index.php';
+    Render('index.php');
 });
 
 
