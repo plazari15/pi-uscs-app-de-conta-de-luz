@@ -2,34 +2,32 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Company Bio</h5>
-                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                <h5 class="white-text">EcoLights</h5>
+                <p class="grey-text text-lighten-4">Nós somos a EcoLights, muito prazer. Somos uma ONG com foco em oferecer um cálculo preciso da sua conta de luz para ajudá-lo nas finanças de casa. Seja bem vindo à sua melhor aliada na hora de planejar o orçamento do mês.</p>
 
 
             </div>
             <div class="col l3 s12">
                 <h5 class="white-text">Settings</h5>
                 <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    <li><a class="white-text" target="_blank"  href="http://fb.com"><i class="fa fa-facebook"></i> Facebook</a></li>
+                    <li><a class="white-text" target="_blank"  href="http://youtube.com"><i class="fa fa-youtube"></i> YouTube</a></li>
+                    <li><a class="white-text" target="_blank"  href="http://twitter.com"><i class="fa fa-twitter"></i> Twitter</a></li>
                 </ul>
             </div>
             <div class="col l3 s12">
-                <h5 class="white-text">Connect</h5>
+                <h5 class="white-text">Entre em contato</h5>
                 <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
+                    <li><a class="white-text" href="mailto:plazari96@gmail.com">plazari96@gmail.com</a></li>
+                    <li><a class="white-text" target="_blank" href="http://uscs.edu.br">Portal USCS</a></li>
+                    <li><a class="white-text" target="_blank" href="http://aeseletropaulo.com.br">AES Eletropaulo</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            Copyright Ecolights. Desenvolvido com <i class="fa fa-heart" aria-hidden="true"></i> por Pedro Lazari. Usando <a href="http://materializecss.com" target="_blank">Materialize</a>
+            Copyright Ecolights. Desenvolvido com <i class="fa fa-heart" aria-hidden="true" style="color: red"></i> por Pedro Lazari. Usando <a href="http://materializecss.com" target="_blank">Materialize</a>
         </div>
     </div>
 </footer>
