@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once ("_app/Config.inc.php");
 
-
+$Read = new \Conn\Read();
 /**
  * Rotas do site
  */
@@ -27,6 +27,10 @@ $App->get('/sobre/time', function () {
     Render('time.php');
 });
 
+$App->get('/calculadora', function () {
+    Render('calculadora.php');
+});
+
 
 $App->get('/books', function ($request, $response, $args) {
     Render('index.php');
@@ -34,5 +38,3 @@ $App->get('/books', function ($request, $response, $args) {
 
 
 $App->run();
-
-

@@ -13,7 +13,8 @@
         "vlucas/phpdotenv": "^2.2",
         "phpunit/phpunit": "5.*",
         "algolia/algoliasearch-client-php" : "1.*",
-        "fzaninotto/faker": "^1.5"
+        "fzaninotto/faker": "^1.5",
+        "auth0/auth0-php": "~3.0"
      },
     "autoload" : {
     	"psr-0" : {

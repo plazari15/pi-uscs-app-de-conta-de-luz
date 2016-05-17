@@ -12,7 +12,11 @@
 <body>
 <!-- BODY -->
 <!--header-->
-<?= Render('padrao/header.php'); ?>
+<?php
+$Read = new \Conn\Read();
+//$Read->ExeRead('bandeiras', "WHERE year = :year", "year=2015");
+var_dump($Read->GetResult());
+Render('padrao/header.php'); ?>
 <!-- header-->
 <div class="parallax-container">
     <div class="parallax"><img src="<?= INCLUDE_PATH ?>/images/sobre-nos.jpg"></div>

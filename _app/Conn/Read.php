@@ -81,7 +81,7 @@ class Read extends Conn {
     private function Connect() {
         $this->Conn = parent::getConn();
         $this->Read = $this->Conn->prepare($this->Select);
-        $this->Read->setFetchMode(PDO::FETCH_ASSOC);
+        $this->Read->setFetchMode(\PDO::FETCH_ASSOC);
     }
 
     //Cria a sintaxe da query para Prepared Statements
@@ -91,7 +91,7 @@ class Read extends Conn {
                 if ($Vinculo == 'limit' || $Vinculo == 'offset'):
                     $Valor = (int) $Valor;
                 endif;
-                $this->Read->bindValue(":{$Vinculo}", $Valor, (is_int($Valor) ? PDO::PARAM_INT : PDO::PARAM_STR));
+                $this->Read->bindValue(":{$Vinculo}", $Valor, (is_int($Valor) ? \PDO::PARAM_INT : \PDO::PARAM_STR));
             endforeach;
         endif;
     }
