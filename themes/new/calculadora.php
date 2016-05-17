@@ -18,7 +18,7 @@
     <div class="parallax"><img src="<?= INCLUDE_PATH ?>/images/calculadora.jpg"></div>
 </div>
 
-<div class="container">
+<div class="container" id="primeiro">
     <h2 class="como_funciona">Calculadora</h2>
 
     <div class="row">
@@ -55,7 +55,7 @@
 
                     <div id="Kwh" class="col s11 m4 " name="kwh[]" style="display: none;">
                         <label>Selecione a Quantidade de kWh Consumidos.</label>
-                        <input type="number" placeholder="Insira os kWh"/>
+                        <input type="number" name="kwh[]" placeholder="Insira os kWh"/>
                     </div>
                 </div><!-- FIM DO BLOCO CLONADOR -->
 
@@ -77,14 +77,14 @@
 
                     <div id="SelectMes2" class="col s11 m4 " style="display: none;">
                         <label>Selecione o Mês</label>
-                        <select id="SelecionaMes" name="mes[]" class="browser-default" required>
+                        <select id="SelecionaMes2" name="mes[]" class="browser-default" required>
                             <option selected disabled>Selecione o Mês</option>
                         </select>
                     </div>
 
                     <div id="Kwh2" class="col s11 m4 " name="kwh[]" style="display: none;">
                         <label>Selecione a Quantidade de kWh Consumidos.</label>
-                        <input type="number" placeholder="Insira os kWh"/>
+                        <input type="number" name="kwh[]" placeholder="Insira os kWh"/>
                     </div>
                 </div><!-- FIM DO BLOCO CLONADOR -->
 
@@ -93,7 +93,7 @@
                         Compartilhar resultados:
                         <label>
                             Off
-                            <input type="checkbox" name="ShareData">
+                            <input type="checkbox" name="ShareData" value="1">
                             <span class="lever"></span>
                             On
                         </label>
@@ -104,7 +104,7 @@
                 <div class="col s12">
                     <button class="waves-effect waves-light btn" style="margin-top: 10%;"><i class="material-icons left">send</i>Processar</button>
                 </div>
-
+                
 
 
             </form>
@@ -112,6 +112,16 @@
         </div>
 
 </div>
+</div>
+
+<div class="container" id="segundo" style="display: none">
+    <div class="row">
+        <!-- EXIBINDOO A MENSAGEM -->
+        <div class="col s12" >
+            <h1>Aqui estão os seus resultados.</h1>
+            <div id="result"></div>
+        </div>
+    </div>
 </div>
 
 <!--footer-->

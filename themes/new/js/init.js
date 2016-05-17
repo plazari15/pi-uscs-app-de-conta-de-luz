@@ -107,7 +107,22 @@
                 Materialize.toast('Hora de Calcular...', 4000);
             },
             success: function ( RESPOSTA ) {
-                //
+                $('#primeiro').fadeOut();
+                $('#segundo').fadeIn();
+                $.each(RESPOSTA, function (key, value) {
+                    if(value.bandeira == 1){
+                        var bandeira = "Verde";
+                    }else if(value.bandeira == 2){
+                        var bandeira = "Amarela";
+                    }else if(value.bandeira == 3){
+                        var bandeira = "Vermelha";
+                    }else if(value.bandeira == 4){
+                        var bandeira = "Vermelha 2";
+                    }
+                    console.log("<p>O Resultado do cálculo referente ao mês "+value.mes+" é de R$"+value.valor+". A Bandeira vigente neste mês é "+bandeira+'</p>');
+                    $('#result').append("<p>O Resultado do cálculo referente ao mês "+value.mes+" é de R$"+value.valor+". A Bandeira vigente neste mês é "+bandeira+'</p>');
+                    //$('#result').html("O Resultado do cálculo referente ao mês "+RESPOSTA.mes+" é de "+RESPOSTA.valor+". A Bandeira vigente neste mês é "+bandeira);
+                })
             }
         })
         return false;
