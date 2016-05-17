@@ -29,7 +29,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-            Copyright Ecolights. Desenvolvido com <i class=""></i> por Pedro Lazari </a>
+            Copyright Ecolights. Desenvolvido com <i class="fa fa-heart" aria-hidden="true"></i> por Pedro Lazari. Usando <a href="http://materializecss.com" target="_blank">Materialize</a>
         </div>
     </div>
 </footer>

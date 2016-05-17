@@ -17,3 +17,7 @@
 .footer_color{
     background-color: #414B82!important;
 }
+
+.shadow-slider{
+    text-shadow: 2px 2px 3px #000;
+}
