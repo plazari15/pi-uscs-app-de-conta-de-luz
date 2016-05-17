@@ -33,3 +33,9 @@
 .quem_somos_text{
     padding-top: 10%!important;
 }
+
+.max_altura{
+    max-height: 100px!important;
+    min-width:70px ;
+    max-width: 90px; ;
+}
