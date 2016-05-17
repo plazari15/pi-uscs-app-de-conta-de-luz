@@ -30,26 +30,83 @@
 
 
         <div class="col s12">
-            <form id="" action="" class="" method="post">
-                <div class="col s11 m6 ">
-                    <label>Selecione o Ano</label>
-                    <select id="SelecionaAno" class="browser-default">
-                        <option selected disabled>Selecione o ano</option>
-                        <?php
-                        for ($Ano = 2015; $Ano <= date('Y'); $Ano++):
-                            ?>
-                            <option value="<?= $Ano ?>"><?= $Ano ?></option>
-                        <?php endfor; ?>
-                    </select>
+            <form id="calculadora"  action="" class="" method="post">
+                <div id="BlocoClonador" style="margin-top: 3%;" class="col s12">
+                    <div class="col s11 m4 ">
+                        <label>Selecione o Ano</label>
+                        <select id="SelecionaAno" name="ano[]" class="browser-default" required>
+                            <option selected disabled>Selecione o ano</option>
+                            <?php
+                            for ($Ano = 2015; $Ano <= date('Y'); $Ano++):
+                                ?>
+                                <option value="<?= $Ano ?>"><?= $Ano ?></option>
+                            <?php endfor; ?>
+                        </select>
 
 
+                    </div>
+
+                    <div id="SelectMes" class="col s11 m4 " style="display: none;">
+                        <label>Selecione o Mês</label>
+                        <select id="SelecionaMes" name="mes[]" class="browser-default" required>
+                            <option selected disabled>Selecione o Mês</option>
+                        </select>
+                    </div>
+
+                    <div id="Kwh" class="col s11 m4 " name="kwh[]" style="display: none;">
+                        <label>Selecione a Quantidade de kWh Consumidos.</label>
+                        <input type="number" placeholder="Insira os kWh"/>
+                    </div>
+                </div><!-- FIM DO BLOCO CLONADOR -->
+
+
+                <div id="BlocoClonador" style="margin-top: 5%;" class="col s12">
+                    <div class="col s11 m4 ">
+                        <label>Selecione o Ano</label>
+                        <select id="SelecionaAno2" name="ano[]" class="browser-default" required>
+                            <option selected disabled>Selecione o ano</option>
+                            <?php
+                            for ($Ano = 2015; $Ano <= date('Y'); $Ano++):
+                                ?>
+                                <option value="<?= $Ano ?>"><?= $Ano ?></option>
+                            <?php endfor; ?>
+                        </select>
+
+
+                    </div>
+
+                    <div id="SelectMes2" class="col s11 m4 " style="display: none;">
+                        <label>Selecione o Mês</label>
+                        <select id="SelecionaMes" name="mes[]" class="browser-default" required>
+                            <option selected disabled>Selecione o Mês</option>
+                        </select>
+                    </div>
+
+                    <div id="Kwh2" class="col s11 m4 " name="kwh[]" style="display: none;">
+                        <label>Selecione a Quantidade de kWh Consumidos.</label>
+                        <input type="number" placeholder="Insira os kWh"/>
+                    </div>
+                </div><!-- FIM DO BLOCO CLONADOR -->
+
+                <div class="col s12" style="margin-top: 5%">
+                    <div class="switch" >
+                        Compartilhar resultados:
+                        <label>
+                            Off
+                            <input type="checkbox" name="ShareData">
+                            <span class="lever"></span>
+                            On
+                        </label>
+                    </div>
                 </div>
 
-                <div id="SelectMes" class="col s11 m6 " style="display: none;">
-                    <select id="SelecionaMes" class="browser-default">
-                        <option selected disabled>Selecione o Mês</option>
-                    </select>
+
+                <div class="col s12">
+                    <button class="waves-effect waves-light btn" style="margin-top: 10%;"><i class="material-icons left">send</i>Processar</button>
                 </div>
+
+
+
             </form>
 
         </div>
@@ -58,7 +115,7 @@
 </div>
 
 <!--footer-->
-<?= Render('padrao/footer.php'); ?>
+    <?= Render('padrao/footer.php'); ?>
 <!-- footer-->
 
 
@@ -69,5 +126,5 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/materialize.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/init.js"></script>
-</body>
+>
 </html>
