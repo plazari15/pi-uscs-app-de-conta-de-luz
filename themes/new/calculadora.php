@@ -136,5 +136,4 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/materialize.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/init.js"></script>
->
 </html>

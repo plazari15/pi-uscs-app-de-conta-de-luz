@@ -21,7 +21,7 @@
         <li>
             <img src="<?= INCLUDE_PATH ?>/images/lampadas.jpg">
             <div class="caption center-align shadow-slider">
-                <h3>Cálcule a sua conta de luz!</h3>
+                <h3>Calcule a sua conta de luz!</h3>
                 <h5 class="light grey-text text-lighten-3">Você pode ter todas as informações referentes a sua conta bem aqui!</h5>
             </div>
         </li>
@@ -65,6 +65,9 @@
         </div>
     </div>
 
+    <canvas id="myChart" width="100%" height="100"></canvas>
+
+
 
 <!--footer-->
 <?= Render('padrao/footer.php'); ?>
@@ -78,5 +81,43 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/materialize.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/init.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.js"></script>
 </body>
 </html>
+<script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+    ctx.canvas.width = 300;
+    ctx.canvas.height = 300;
+    var data = {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+            {
+                label: "My First dataset",
+                fill: false,
+                lineTension: 0.2,
+                backgroundColor: "rgba(75,192,192,0.4)",
+                borderColor: "rgba(75,192,192,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(75,192,192,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: [65, 59, 80, 81, 56, 55, 40],
+            }
+        ]
+    };
+
+    new Chart(ctx, {
+        type: 'line',
+        responsive: true,
+        data: data,
+    });
+</script>

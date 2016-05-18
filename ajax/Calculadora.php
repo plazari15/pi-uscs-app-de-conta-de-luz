@@ -41,5 +41,5 @@ foreach ($Arr as $Dados){
 
 }
 
-
+sleep(2);
 echo json_encode($Result);
