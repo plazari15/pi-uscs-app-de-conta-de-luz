@@ -75,7 +75,7 @@
 
 
                 <!-- DADOS GERAIS DO FORM PERTINENTE A TODOS -->
-                <div class="col s12" style="margin-top: 5%">
+                <div class="col s3" style="margin-top: 5%">
                     <div class="switch" >
                         Compartilhar resultados:
                         <label>
@@ -109,6 +109,7 @@
         <div class="col s12" >
             <h1>Aqui estão os seus resultados.</h1>
             <div id="result"></div>
+                <a href="<?= HOME ?>/calculadora" title="Calculadora"><button class="waves-effect waves-light btn" style="margin-top: 10%;"><i class="material-icons left">done</i>Quero fazer um novo calculo.</button></a>
         </div>
     </div>
 </div>

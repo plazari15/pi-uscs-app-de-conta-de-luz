@@ -28,9 +28,6 @@
       },
       success: function ( RESPOSTA ) {
         Materialize.toast('Pronto! Selecione o mês!', 4000);
-        //$('.SelectMesAjax').replaceWith(RESPOSTA.select);
-        //$('.SelecioneMes').replaceWith(RESPOSTA.select);
-        //$('.SelectMesAjax').fadeIn();
           $.each(RESPOSTA, function(key, value){
               $('.SelectMesAjax').append($('<option></option>').attr("value", value.value).text(value.nome));
           });
@@ -42,9 +39,22 @@
   });
 
     $('.SelectMesAjax').change(function () {
-        var Data = $('.SelectMesAjax').val();
-        alert(Data);
-    })
+        var Data = $('.SelectMesAjax').val().length;
+        if(Data === 0){
+            Materialize.toast('Selecione um mês antes.', 4000);
+        }else{
+            $('.TipoResidencia').removeAttr("disabled");
+        }
+    });
+
+    $('.TipoResidencia').change(function () {
+        var Data = $('.TipoResidencia').val().length;
+        if(Data === 0){
+            Materialize.toast('Selecione um mês antes.', 4000);
+        }else{
+            $('.KwhConsumido').removeAttr("disabled");
+        }
+    });
 
     $('#calculadora').submit(function () {
         var Data = $('#calculadora').serialize();
@@ -57,7 +67,6 @@
                 Materialize.toast('Hora de Calcular...', 4000);
             },
             success: function ( RESPOSTA ) {
-                alert('Sucesso');
                 $('#primeiro').fadeOut();
                 $('#segundo').fadeIn();
                 $.each(RESPOSTA, function (key, value) {
@@ -76,11 +85,23 @@
                 })
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                alert(xhr.status);
-                alert(thrownError);
+                if(xhr.status == 301){
+                    Materialize.toast(thrownError, 4000);
+                }
+
             }
         })
         return false;
     });
+    
+    $('.CalculaNovamente').click(function () {
+        $("#segundo").fadeOut();
+        $("#primeiro").fadeIn();
+        $('.SelecionaAnoAjax').val('');
+        $('.SelectMesAjax').val('');
+        $('.TipoResidencia').val('');
+        $('.KwhConsumido').val('');
+
+    })
 
 })(jQuery); // end of jQuery name space

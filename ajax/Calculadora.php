@@ -39,6 +39,10 @@ foreach ($Arr as $Dados){
         );
     }
 
+    if($CalculaValor->RetornaSemFormato() == 0){
+        header('HTTP/1.1 301 Existem campos inválidos.');
+    }
+
 }
 
 sleep(2);

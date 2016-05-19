@@ -14,7 +14,6 @@ $Result = '';
 if($Read->GetResult()){
     //$Result['select'] .= "<option disabled selected id='SelecioneMes'>Selecione o mês</option>";
     $Select[] = array(
-        'option' => "<option value='{$mes}'>{$nome_mes}</option>",
         'nome' => 'Selecione o mês',
         'value' => '',
         'attr' => 'disabled'
