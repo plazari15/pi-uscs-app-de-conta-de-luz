@@ -14,7 +14,8 @@
         "phpunit/phpunit": "5.*",
         "algolia/algoliasearch-client-php" : "1.*",
         "fzaninotto/faker": "^1.5",
-        "auth0/auth0-php": "~3.0"
+        "auth0/auth0-php": "~3.0",
+        "davefx/phplot"  : "dev-master"
      },
     "autoload" : {
     	"psr-0" : {

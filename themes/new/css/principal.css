@@ -39,3 +39,7 @@
     min-width:70px ;
     max-width: 90px; ;
 }
+
+.new{
+    content: none!important;
+}
