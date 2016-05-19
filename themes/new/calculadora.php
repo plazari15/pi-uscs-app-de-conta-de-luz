@@ -32,7 +32,8 @@
 
         <div class="col s12">
             <form id="calculadora"  action="" class="" method="post">
-                <div id="BlocoClonador" style="margin-top: 3%;" class="col s12">
+                <?php for($i=1; $i <= 1; $i++): ?>
+                    <div id="BlocoClonador" style="margin-top: 3%;" class="col s12">
                     <div class="col s11 m3 ">
                         <label>Selecione o Ano</label>
                         <select name="ano[]" class="browser-default SelecionaAnoAjax" required>
@@ -68,6 +69,8 @@
                     </div>
 
                 </div><!-- FIM DO BLOCO CLONADOR -->
+                <?php endfor; ?>
+
 
 
 

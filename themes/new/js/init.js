@@ -41,23 +41,10 @@
     })
   });
 
-    $('.TipoResidencia').change(function () {
-        var Data = $('.TipoResidencia').val().length;
-        if(Data === 0 ){
-            Materialize.toast('Selecione um mês antes de prosseguir.', 4000);
-        }else{
-            $('.KwhConsumido').removeAttr('disabled');
-        }
-    });
-
     $('.SelectMesAjax').change(function () {
-        var Data = $('.SelectMesAjax').val().length;
-        if(Data === 0 ){
-            Materialize.toast('Selecione um mês antes de prosseguir.', 4000);
-        }else{
-            $('.TipoResidencia').removeAttr('disabled');
-        }
-    });
+        var Data = $('.SelectMesAjax').val();
+        alert(Data);
+    })
 
     $('#calculadora').submit(function () {
         var Data = $('#calculadora').serialize();
