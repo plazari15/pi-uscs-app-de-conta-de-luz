@@ -15,8 +15,8 @@
 
 
   
-  $('#SelecionaAno').change(function () {
-    var value = $('#SelecionaAno').val();
+  $('.SelecionaAnoAjax').change(function () {
+    var value = $('.SelecionaAnoAjax').val();
     $.ajax({
       url: 'ajax/SelecionaAno.php',
       data: {ano: value},
@@ -35,69 +35,12 @@
         }
     })
   });
-
-  $('#SelecionaMes').change(function () {
-    var Ano = $('#SelecionaAno').val();
-    var Mes = $('#SelecionaMes').val();
-    $.ajax({
-      url: 'ajax/SelecionaMes.php',
-      data: {ano:Ano, mes:Mes},
-      type: 'post',
-      dataType: 'json',
-      beforeSend: function () {
-        Materialize.toast('Aguarde, Processando...', 4000);
-      },
-      success: function ( RESPOSTA ) {
-        Materialize.toast('Pronto! Aqui estão os dados ferentes a este mês. Insira os Kwh.', 4000);
-        $('#SelecionaMes').replaceWith(RESPOSTA.select);
-        $('#SelectMes').fadeIn();
-        $('#Kwh').fadeIn();
-      }
-    })
-  });
-
-
-    $('#SelecionaAno2').change(function () {
-        var value = $('#SelecionaAno2').val();
-        $.ajax({
-            url: 'ajax/SelecionaAno.php',
-            data: {ano: value},
-            type: 'post',
-            dataType: 'json',
-            beforeSend: function () {
-                Materialize.toast('Aguarde, Processando...', 4000);
-            },
-            success: function ( RESPOSTA ) {
-                Materialize.toast('Pronto! Selecione o mês!', 4000);
-                $('#SelecionaMes2').replaceWith(RESPOSTA.select);
-                $('#SelectMes2').fadeIn();
-                $('#Kwh2').fadeIn();
-            }
-        })
+    
+    $('.SelectMesAjax').change(function () {
+        var valor = $('.SelectMesAjax').val();
+        alert(valor);
     });
-
-    $('#SelecionaMes2').change(function () {
-        var Ano = $('#SelecionaAno2').val();
-        var Mes = $('#SelecionaMes2').val();
-        $.ajax({
-            url: 'ajax/SelecionaMes.php',
-            data: {ano:Ano, mes:Mes},
-            type: 'post',
-            dataType: 'json',
-            beforeSend: function () {
-                Materialize.toast('Aguarde, Processando...', 4000);
-            },
-            success: function ( RESPOSTA ) {
-                Materialize.toast('Pronto! Aqui estão os dados ferentes a este mês. Insira os Kwh.', 4000);
-                $('#SelecionaMes2').replaceWith(RESPOSTA.select);
-                $('#SelectMes2').fadeIn();
-                $('#Kwh2').fadeIn();
-            }
-        })
-    });
-
-
-
+    
     $('#calculadora').submit(function () {
         var Data = $('#calculadora').serialize();
         $.ajax({
