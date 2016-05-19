@@ -47,25 +47,26 @@
 
                     <div id="SelectMes" class="col s11 m3">
                         <label>Selecione o Mês</label>
-                        <select id="SelecionaMes" name="mes[]" disabled class="browser-default SelectMesAjax" required>
-                            <option selected disabled>Selecione o Mês</option>
+                        <select id="SelecionaMes" name="mes[]" class="browser-default SelectMesAjax" required>
+                            <option selected disabled data-id="SelecioneMes">Selecione o Mês</option>
                         </select>
                     </div>
 
                     <div id="Kwh" class="col s11 m3 " name="kwh[]">
-                        <label>kWh Consumidos.</label>
-                        <input type="number" disabled name="kwh[]" placeholder="Insira os kWh"/>
-                    </div>
-
-                    <div id="Kwh" class="col s11 m3 " name="kwh[]">
                         <label>Tipo Residencia</label>
-                        <select id="Tipo_Residencia" disabled name="tipo_residencia[]" class="browser-default" required>
+                        <select id="Tipo_Residencia" disabled name="tipo_residencia[]" class="browser-default TipoResidencia" required>
                             <option selected disabled>Selecione o Tipo</option>
                             <option value="residencia">Residencia</option>
                             <option value="comercial">Comercial</option>
                             <option value="residencial_baixa">Residencia Baixa Renda</option>
                         </select>
                     </div>
+
+                    <div id="Kwh" class="col s11 m3" name="kwh[]">
+                        <label>kWh Consumidos.</label>
+                        <input type="number" disabled name="kwh[]"  class="KwhConsumido" placeholder="Insira os kWh"/>
+                    </div>
+
                 </div><!-- FIM DO BLOCO CLONADOR -->
 
 

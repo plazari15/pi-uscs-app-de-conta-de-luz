@@ -24,23 +24,41 @@
       dataType: 'json',
       beforeSend: function () {
         Materialize.toast('Aguarde, Processando...', 4000);
+          $('.SelectMesAjax').find('option').remove().end();
       },
       success: function ( RESPOSTA ) {
         Materialize.toast('Pronto! Selecione o mês!', 4000);
-        $('#SelecionaMes').replaceWith(RESPOSTA.select);
-        $('#SelectMes').fadeIn();
-        $('#Kwh').fadeIn();
+        //$('.SelectMesAjax').replaceWith(RESPOSTA.select);
+        //$('.SelecioneMes').replaceWith(RESPOSTA.select);
+        //$('.SelectMesAjax').fadeIn();
+          $.each(RESPOSTA, function(key, value){
+              $('.SelectMesAjax').append($('<option></option>').attr("value", value.value).text(value.nome));
+          });
+         // console.log(RESPOSTA);
       }, error: function (xhr, ajaxOptions, thrownError) {
             Materialize.toast('Desculpe. Um problema foi encontrado.', 4000);
         }
     })
   });
-    
-    $('.SelectMesAjax').change(function () {
-        var valor = $('.SelectMesAjax').val();
-        alert(valor);
+
+    $('.TipoResidencia').change(function () {
+        var Data = $('.TipoResidencia').val().length;
+        if(Data === 0 ){
+            Materialize.toast('Selecione um mês antes de prosseguir.', 4000);
+        }else{
+            $('.KwhConsumido').removeAttr('disabled');
+        }
     });
-    
+
+    $('.SelectMesAjax').change(function () {
+        var Data = $('.SelectMesAjax').val().length;
+        if(Data === 0 ){
+            Materialize.toast('Selecione um mês antes de prosseguir.', 4000);
+        }else{
+            $('.TipoResidencia').removeAttr('disabled');
+        }
+    });
+
     $('#calculadora').submit(function () {
         var Data = $('#calculadora').serialize();
         $.ajax({
