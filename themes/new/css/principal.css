@@ -1,5 +1,8 @@
 .header_color{
-    background-color: #272d4e!important;
+    background-color: #fff!important;
+}
+.menu_text{
+    color: #555!important;
 }
 
 .logo{
@@ -40,6 +43,12 @@
     max-width: 90px; ;
 }
 
-.new{
-    content: none!important;
+.indicators{
+    display: none!important;
+}
+
+.logo_header{
+    max-height: 60px;
+    max-width: 100%;
+    height: auto !important;
 }

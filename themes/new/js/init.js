@@ -30,7 +30,9 @@
         $('#SelecionaMes').replaceWith(RESPOSTA.select);
         $('#SelectMes').fadeIn();
         $('#Kwh').fadeIn();
-      }
+      }, error: function (xhr, ajaxOptions, thrownError) {
+            Materialize.toast('Desculpe. Um problema foi encontrado.', 4000);
+        }
     })
   });
 
@@ -107,6 +109,7 @@
                 Materialize.toast('Hora de Calcular...', 4000);
             },
             success: function ( RESPOSTA ) {
+                alert('Sucesso');
                 $('#primeiro').fadeOut();
                 $('#segundo').fadeIn();
                 $.each(RESPOSTA, function (key, value) {
@@ -123,6 +126,10 @@
                     $('#result').append("<p>O Resultado do cálculo referente ao mês "+value.mes+" é de R$"+value.valor+". A Bandeira vigente neste mês é "+bandeira+'</p>');
                     //$('#result').html("O Resultado do cálculo referente ao mês "+RESPOSTA.mes+" é de "+RESPOSTA.valor+". A Bandeira vigente neste mês é "+bandeira);
                 })
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
             }
         })
         return false;

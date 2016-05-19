@@ -8,7 +8,7 @@
 
             </div>
             <div class="col l3 s12">
-                <h5 class="white-text">Settings</h5>
+                <h5 class="white-text">Redes Sociais</h5>
                 <ul>
                     <li><a class="white-text" target="_blank"  href="http://fb.com"><i class="fa fa-facebook"></i> Facebook</a></li>
                     <li><a class="white-text" target="_blank"  href="http://youtube.com"><i class="fa fa-youtube"></i> YouTube</a></li>

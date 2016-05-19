@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <link rel=icon href="<?= INCLUDE_PATH ?>/images/favicon.png" sizes="16x16" type="image/png">
     <title>Calculadora - EcoLights</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<?= INCLUDE_PATH ?>/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -32,7 +33,7 @@
         <div class="col s12">
             <form id="calculadora"  action="" class="" method="post">
                 <div id="BlocoClonador" style="margin-top: 3%;" class="col s12">
-                    <div class="col s11 m4 ">
+                    <div class="col s11 m3 ">
                         <label>Selecione o Ano</label>
                         <select id="SelecionaAno" name="ano[]" class="browser-default" required>
                             <option selected disabled>Selecione o ano</option>
@@ -42,52 +43,29 @@
                                 <option value="<?= $Ano ?>"><?= $Ano ?></option>
                             <?php endfor; ?>
                         </select>
-
-
                     </div>
 
-                    <div id="SelectMes" class="col s11 m4 " style="display: none;">
+                    <div id="SelectMes" class="col s11 m3 " style="display: none;">
                         <label>Selecione o Mês</label>
                         <select id="SelecionaMes" name="mes[]" class="browser-default" required>
                             <option selected disabled>Selecione o Mês</option>
                         </select>
                     </div>
 
-                    <div id="Kwh" class="col s11 m4 " name="kwh[]" style="display: none;">
+                    <div id="Kwh" class="col s11 m3 " name="kwh[]" style="display: none;">
+                        <label>Selecione a Quantidade de kWh Consumidos.</label>
+                        <input type="number" name="kwh[]" placeholder="Insira os kWh"/>
+                    </div>
+
+                    <div id="Kwh" class="col s11 m3 " name="kwh[]" style="display: none;">
                         <label>Selecione a Quantidade de kWh Consumidos.</label>
                         <input type="number" name="kwh[]" placeholder="Insira os kWh"/>
                     </div>
                 </div><!-- FIM DO BLOCO CLONADOR -->
 
 
-                <div id="BlocoClonador" style="margin-top: 5%;" class="col s12">
-                    <div class="col s11 m4 ">
-                        <label>Selecione o Ano</label>
-                        <select id="SelecionaAno2" name="ano[]" class="browser-default" required>
-                            <option selected disabled>Selecione o ano</option>
-                            <?php
-                            for ($Ano = 2015; $Ano <= date('Y'); $Ano++):
-                                ?>
-                                <option value="<?= $Ano ?>"><?= $Ano ?></option>
-                            <?php endfor; ?>
-                        </select>
 
-
-                    </div>
-
-                    <div id="SelectMes2" class="col s11 m4 " style="display: none;">
-                        <label>Selecione o Mês</label>
-                        <select id="SelecionaMes2" name="mes[]" class="browser-default" required>
-                            <option selected disabled>Selecione o Mês</option>
-                        </select>
-                    </div>
-
-                    <div id="Kwh2" class="col s11 m4 " name="kwh[]" style="display: none;">
-                        <label>Selecione a Quantidade de kWh Consumidos.</label>
-                        <input type="number" name="kwh[]" placeholder="Insira os kWh"/>
-                    </div>
-                </div><!-- FIM DO BLOCO CLONADOR -->
-
+                <!-- DADOS GERAIS DO FORM PERTINENTE A TODOS -->
                 <div class="col s12" style="margin-top: 5%">
                     <div class="switch" >
                         Compartilhar resultados:
@@ -107,13 +85,15 @@
                 
 
 
-            </form>
+            </form><!-- FORM TOTAL -->
 
-        </div>
+        </div><!-- COL S12 -->
 
-</div>
-</div>
+</div><!-- ROW -->
+</div><!-- CONTAINER -->
+<!-- AQUI FIM DO FORM-->
 
+<!-- AQUI VEM A MENSAGEM QUANDO DEU TUDO CERTO OU ERRADO" -->
 <div class="container" id="segundo" style="display: none">
     <div class="row">
         <!-- EXIBINDOO A MENSAGEM -->

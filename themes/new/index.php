@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <link rel=icon href="<?= INCLUDE_PATH ?>/images/favicon.png" sizes="16x16" type="image/png">
     <title>EcoLights</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<?= INCLUDE_PATH ?>/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="<?= INCLUDE_PATH ?>/css/principal.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="<?= INCLUDE_PATH ?>/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <style type="text/css">
+        ${demo.css}
+    </style>
 </head>
 <body>
 <!-- BODY -->
@@ -66,61 +70,10 @@
     </div>
 
 
-    <?php
-    $data = array(
-        array('2001',  60,  35,  20),
-        array('2002',  65,  30,  30),
-        array('2003',  70,  25,  40),
-        array('2004',  72,  20,  60),
-        array('2005',  75,  15,  70),
-        array('2006',  77,  10,  80),
-        array('2007',  80,   5,  90),
-        array('2008',  85,   4,  95),
-        array('2009',  90,   3,  98),
-    );
-    $p = new PHPlot(800, 400);
-
-    # Use TrueType fonts:
-   // $p->SetDefaultTTFont('./arial.ttf');
-
-    # Set the main plot title:
-    $p->SetTitle('PHPlot Customer Satisfaction (estimated)');
-
-    # Select the data array representation and store the data:
-    $p->SetDataType('text-data');
-    $p->SetDataValues($data);
-
-    # Select the plot type - bar chart:
-    $p->SetPlotType('bars');
-
-    # Define the data range. PHPlot can do this automatically, but not as well.
-    $p->SetPlotAreaWorld(0, 0, 9, 100);
-
-    # Select an overall image background color and another color under the plot:
-    $p->SetBackgroundColor('#ffffcc');
-    $p->SetDrawPlotAreaBackground(True);
-    $p->SetPlotBgColor('#ffffff');
-
-    # Draw lines on all 4 sides of the plot:
-    $p->SetPlotBorderType('full');
-
-    # Set a 3 line legend, and position it in the upper left corner:
-    $p->SetLegend(array('Features', 'Bugs', 'Happy Users'));
-    $p->SetLegendWorld(0.1, 95);
-
-    # Turn data labels on, and all ticks and tick labels off:
-    $p->SetXDataLabelPos('plotdown');
-    $p->SetXTickPos('none');
-    $p->SetXTickLabelPos('none');
-    $p->SetYTickPos('none');
-    $p->SetYTickLabelPos('none');
-
-    # Generate and output the graph now:
-    $p->DrawGraph();
-
-    ?>
-
-
+    <div class="col s12 m4">
+        <h2 class="center">Gráfico de Consumo</h2>
+        <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
 
 
 <!--footer-->
@@ -135,43 +88,55 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/materialize.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/init.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.js"></script>
+<script src="<?= INCLUDE_PATH ?>/library/hightcharts/js/highcharts.js"></script>
+<!--<script src="--><?//= INCLUDE_PATH ?><!--/library/hightcharts/js/modules/exporting.js"></script>-->
+    <script type="text/javascript">
+        $(function () {
+            $('#container').highcharts({
+                title: {
+                    text: 'Consumo de Energia',
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: 'Gráfico gerado com a ajuda de nossos usuários',
+                    x: -20
+                },
+                xAxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Concumo (kWh)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    valueSuffix: '°C'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Residencial',
+                    data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+                }, {
+                    name: 'Comercial',
+                    data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+                }, {
+                    name: 'Residencial Baixa Renda',
+                    data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+                }]
+            });
+        });
+    </script>
+
 </body>
 </html>
-<script>
-    var ctx = document.getElementById("myChart").getContext("2d");
-    ctx.canvas.width = 300;
-    ctx.canvas.height = 300;
-    var data = {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [
-            {
-                label: "My First dataset",
-                fill: false,
-                lineTension: 0.2,
-                backgroundColor: "rgba(75,192,192,0.4)",
-                borderColor: "rgba(75,192,192,1)",
-                borderCapStyle: 'butt',
-                borderDash: [],
-                borderDashOffset: 0.0,
-                borderJoinStyle: 'miter',
-                pointBorderColor: "rgba(75,192,192,1)",
-                pointBackgroundColor: "#fff",
-                pointBorderWidth: 1,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                pointHoverBorderColor: "rgba(220,220,220,1)",
-                pointHoverBorderWidth: 2,
-                pointRadius: 1,
-                pointHitRadius: 10,
-                data: [65, 59, 80, 81, 56, 55, 40],
-            }
-        ]
-    };
-
-    new Chart(ctx, {
-        type: 'line',
-        responsive: true,
-        data: data,
-    });
-</script>
