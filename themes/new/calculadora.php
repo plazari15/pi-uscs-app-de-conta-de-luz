@@ -57,7 +57,7 @@
                         <label>Tipo Residencia</label>
                         <select id="Tipo_Residencia" disabled name="tipo_residencia[]" class="browser-default TipoResidencia" required>
                             <option selected disabled>Selecione o Tipo</option>
-                            <option value="residencia">Residencia</option>
+                            <option value="residencial">Residencia</option>
                             <option value="comercial">Comercial</option>
                             <option value="residencial_baixa">Residencia Baixa Renda</option>
                         </select>

@@ -13,20 +13,23 @@ for($i=0; $i < count($Post['ano']); $i++){
         'consumo' => $Post['kwh'][$i],
         'ano'    => $Post['ano'][$i],
         'mes'    => $Post['mes'][$i],
+        'tipo_residencia'    => $Post['tipo_residencia'][$i],
     );
 }
 $i=0;
 foreach ($Arr as $Dados){
+    //var_dump($Arr);
     $i++;
     $Read->ExeRead('bandeiras', "WHERE year = :year AND mes = :mes", "year={$Dados['ano']}&mes={$Dados['mes']}");
-    $CalculaValor->CalculaConta($Dados['consumo'], $Read->GetResult()[0]['cod_bandeira'], 'residencial');
+    $CalculaValor->CalculaConta($Dados['consumo'], $Read->GetResult()[0]['cod_bandeira'], $Dados['tipo_residencia']);
     $Dados = array(
         'kwh' => $Dados['consumo'],
         'mes' => $Dados['mes'],
         'bandeira' => $Read->GetResult()[0]['cod_bandeira'],
         'data' => date("Y-m-d"),
         'valor' => $CalculaValor->RetornaValores(),
-        'compartilhar' => (isset($Post['ShareData']) == 1 ? $Post['ShareData'] : 0)
+        'compartilhar' => (isset($Post['ShareData']) == 1 ? $Post['ShareData'] : 0),
+        'tipo_conta' => $Dados['tipo_residencia']
     );
     $Create->ExeCreate('calculos', $Dados);
 
