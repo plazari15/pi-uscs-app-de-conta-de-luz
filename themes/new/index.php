@@ -91,9 +91,6 @@
 <!--<script src="--><?//= INCLUDE_PATH ?><!--/library/hightcharts/js/modules/exporting.js"></script>-->
     <?php
     $Media = new \Own\GeraMediaDosCalculos();
-//    for($i=1; $i <=12; $i++){ $Media->GeraMedia($i,2015 , 'residencial') }
-//    var_dump($calc);
-    ?>
     ?>
     <script type="text/javascript">
         $(function () {
@@ -147,40 +144,6 @@
                     ]
                 },
                     {
-                        name: 'Comercial 2015',
-                        data: [
-                            <?= $Media->GeraMedia(1,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(2,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(3,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(4,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(5,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(6,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(7,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(8,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(9,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(10,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(11,2015 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(12,2015 , 'comercial') ?>,
-                        ]
-                    },
-                    {
-                        name: 'Residencial Baixa Renda 2015',
-                        data: [
-                            <?= $Media->GeraMedia(1,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(2,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(3,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(4,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(5,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(6,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(7,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(8,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(9,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(10,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(11,2015 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(12,2015 , 'residencial_baixa') ?>,
-                        ]
-                    },
-                    {
                         name: 'Residencial 2016',
                         data: [
                             <?= $Media->GeraMedia(1,2016 , 'residencial') ?>,
@@ -196,41 +159,7 @@
                             <?= $Media->GeraMedia(11,2016 , 'residencial') ?>,
                             <?= $Media->GeraMedia(12,2016 , 'residencial') ?>,
                         ]
-                    },
-                    {
-                        name: 'Comercial 2016',
-                        data: [
-                            <?= $Media->GeraMedia(1,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(2,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(3,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(4,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(5,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(6,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(7,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(8,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(9,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(10,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(11,2016 , 'comercial') ?>,
-                            <?= $Media->GeraMedia(12,2016 , 'comercial') ?>,
-                        ]
-                    },
-                    {
-                        name: 'Residencial Baixa Renda 2016',
-                        data: [
-                            <?= $Media->GeraMedia(1,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(2,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(3,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(4,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(5,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(6,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(7,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(8,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(9,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(10,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(11,2016 , 'residencial_baixa') ?>,
-                            <?= $Media->GeraMedia(12,2016 , 'residencial_baixa') ?>,
-                        ]
-                    },
+                    }
                 ]
             });
         });
