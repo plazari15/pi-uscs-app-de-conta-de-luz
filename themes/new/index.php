@@ -26,7 +26,7 @@
             <img src="<?= INCLUDE_PATH ?>/images/lampadas.jpg">
             <div class="caption center-align shadow-slider">
                 <h3>Calcule a sua conta de luz!</h3>
-                <h5 class="light grey-text text-lighten-3">Você pode ter todas as informações referentes a sua conta bem aqui!</h5>
+                <h5 class="light grey-text text-lighten-3 ali">Você pode ter todas as informações referentes a sua conta bem aqui!</h5>
             </div>
         </li>
     </ul>
@@ -73,6 +73,9 @@
     <div class="col s12 m4">
         <h2 class="center">Gráfico de Consumo</h2>
         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    </div>
+    <div class="col s3  offset-by-6" style="text-align: center">
+        <a href="<?= HOME ?>/graficos" class="waves-effect waves-light btn off center-align">Veja mais gráficos</a>
     </div>
 
 <!--footer-->

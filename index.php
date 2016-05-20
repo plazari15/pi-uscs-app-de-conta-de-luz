@@ -30,6 +30,10 @@ $App->get('/calculadora', function () {
     Render('calculadora.php');
 });
 
+$App->get('/graficos', function () {
+    Render('graficos.php');
+});
+
 $App->get('/dashboard/login', function () {
     Render('Login.php');
 });
