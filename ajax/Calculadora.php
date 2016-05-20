@@ -29,7 +29,8 @@ foreach ($Arr as $Dados){
         'data' => date("Y-m-d"),
         'valor' => $CalculaValor->RetornaValores(),
         'compartilhar' => (isset($Post['ShareData']) == 1 ? $Post['ShareData'] : 0),
-        'tipo_conta' => $Dados['tipo_residencia']
+        'tipo_conta' => $Dados['tipo_residencia'],
+        'ano'       => $Dados['ano']
     );
     $Create->ExeCreate('calculos', $Dados);
 

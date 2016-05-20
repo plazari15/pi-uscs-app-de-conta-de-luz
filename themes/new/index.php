@@ -75,15 +75,10 @@
         <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
     </div>
 
-    <?php
-    $Media = new \Own\GeraMediaDosCalculos();
-    var_dump($Media->GeraMedia(2))
-    ?>
-
 <!--footer-->
 <?= Render('padrao/footer.php'); ?>
 <!-- footer-->
-
+    
 
 
 <!-- BODY -->
@@ -94,6 +89,12 @@
 <script src="<?= INCLUDE_PATH ?>/js/init.js"></script>
 <script src="<?= INCLUDE_PATH ?>/library/hightcharts/js/highcharts.js"></script>
 <!--<script src="--><?//= INCLUDE_PATH ?><!--/library/hightcharts/js/modules/exporting.js"></script>-->
+    <?php
+    $Media = new \Own\GeraMediaDosCalculos();
+//    for($i=1; $i <=12; $i++){ $Media->GeraMedia($i,2015 , 'residencial') }
+//    var_dump($calc);
+    ?>
+    ?>
     <script type="text/javascript">
         $(function () {
             $('#container').highcharts({
@@ -129,15 +130,108 @@
                     borderWidth: 0
                 },
                 series: [{
-                    name: 'Residencial',
-                    data: [<?= $Media->GeraMedia(1) ?>, <?= $Media->GeraMedia(2) ?>, <?= $Media->GeraMedia(3) ?>]
-                }, {
-                    name: 'Comercial',
-                    data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-                }, {
-                    name: 'Residencial Baixa Renda',
-                    data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-                }]
+                    name: 'Residencial 2015',
+                    data: [
+                        <?= $Media->GeraMedia(1,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(2,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(3,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(4,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(5,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(6,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(7,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(8,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(9,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(10,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(11,2015 , 'residencial') ?>,
+                        <?= $Media->GeraMedia(12,2015 , 'residencial') ?>,
+                    ]
+                },
+                    {
+                        name: 'Comercial 2015',
+                        data: [
+                            <?= $Media->GeraMedia(1,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(2,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(3,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(4,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(5,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(6,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(7,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(8,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(9,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(10,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(11,2015 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(12,2015 , 'comercial') ?>,
+                        ]
+                    },
+                    {
+                        name: 'Residencial Baixa Renda 2015',
+                        data: [
+                            <?= $Media->GeraMedia(1,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(2,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(3,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(4,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(5,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(6,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(7,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(8,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(9,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(10,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(11,2015 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(12,2015 , 'residencial_baixa') ?>,
+                        ]
+                    },
+                    {
+                        name: 'Residencial 2016',
+                        data: [
+                            <?= $Media->GeraMedia(1,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(2,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(3,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(4,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(5,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(6,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(7,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(8,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(9,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(10,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(11,2016 , 'residencial') ?>,
+                            <?= $Media->GeraMedia(12,2016 , 'residencial') ?>,
+                        ]
+                    },
+                    {
+                        name: 'Comercial 2016',
+                        data: [
+                            <?= $Media->GeraMedia(1,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(2,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(3,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(4,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(5,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(6,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(7,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(8,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(9,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(10,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(11,2016 , 'comercial') ?>,
+                            <?= $Media->GeraMedia(12,2016 , 'comercial') ?>,
+                        ]
+                    },
+                    {
+                        name: 'Residencial Baixa Renda 2016',
+                        data: [
+                            <?= $Media->GeraMedia(1,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(2,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(3,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(4,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(5,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(6,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(7,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(8,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(9,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(10,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(11,2016 , 'residencial_baixa') ?>,
+                            <?= $Media->GeraMedia(12,2016 , 'residencial_baixa') ?>,
+                        ]
+                    },
+                ]
             });
         });
     </script>
