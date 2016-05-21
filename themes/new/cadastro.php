@@ -16,10 +16,6 @@
 <?= Render('padrao/header.php'); ?>
 <!-- header-->
 
-<?php
-var_dump($args);
-?>
-
 <!-- GRID -->
 <div class="container">
     <div class="row">
@@ -27,7 +23,7 @@ var_dump($args);
             <h3>Realize seu cadastro</h3>
             <p>Realize um cadastro para ter um completo acesso ao sistema</p>
         </div>
-        <form class="col s12" action="<?= HOME ?>/action/cadastro" method="post">
+        <form class="col s12 FormCadastro" action="" method="post">
             <div class="row">
                 <div class="input-field col s6">
                     <input  name="nome" id="first_name" type="text" class="validate">

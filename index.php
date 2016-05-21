@@ -48,9 +48,6 @@ $App->get('/cadastro', function () {
     Render('cadastro.php');
 });
 
-$App->get('/cadastro/{status}', function ($request, $response, $args) {
-    Render('cadastro.php');
-});
 
 
 $App->post('/action/login', function () {
@@ -59,15 +56,6 @@ $App->post('/action/login', function () {
     var_dump($Post);
 });
 
-$App->post('/action/cadastro', function () use ($App) {
-    $Post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-    $Cadastro = new \Own\CadastroUsuario($Post);
-    if($Cadastro->CriarConta()){
-        $App->redirect('/cadastro/sucesso');
-    }else{
-        $App->redirect('/cadastro/erro');
-    }
-});
 
 
 $App->get('/books', function ($request, $response, $args) {

@@ -16,7 +16,8 @@
         "fzaninotto/faker": "^1.5",
         "auth0/auth0-php": "~3.0",
         "davefx/phplot"  : "dev-master",
-        "twilio/sdk": "^4.10"
+        "twilio/sdk": "^4.10",
+        "longman/telegram-bot": "*"
      },
     "autoload" : {
     	"psr-0" : {

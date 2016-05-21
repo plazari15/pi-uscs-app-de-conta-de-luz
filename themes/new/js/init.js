@@ -102,6 +102,23 @@
         $('.TipoResidencia').val('');
         $('.KwhConsumido').val('');
 
-    })
+    });
+
+    $('.FormCadastro').submit(function () {
+        var cadastro = $(this).serialize();
+        $.ajax({
+           url: 'ajax/Cadastro.php',
+            data: cadastro,
+            dataType: 'json',
+            type: 'post',
+            beforeSend: function () {
+                Materialize.toast('Aguarde, cadastro iniciado', 2000);
+            },
+            success: function (RESPOSTA) {
+                Materialize.toast(RESPOSTA.text, 2000);
+            }
+        });
+       return false;
+    });
 
 })(jQuery); // end of jQuery name space
