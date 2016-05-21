@@ -15,7 +15,8 @@
         "algolia/algoliasearch-client-php" : "1.*",
         "fzaninotto/faker": "^1.5",
         "auth0/auth0-php": "~3.0",
-        "davefx/phplot"  : "dev-master"
+        "davefx/phplot"  : "dev-master",
+        "twilio/sdk": "^4.10"
      },
     "autoload" : {
     	"psr-0" : {

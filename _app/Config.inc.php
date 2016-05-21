@@ -10,6 +10,10 @@ define('USER', getenv('DB_USER'));
 define('PASS', getenv('DB_PASS'));
 define('BANCO', getenv('DB_BANCO'));
 
+// DEFINE SERVIDOR DE SMS TWILIO ####################
+define('TWILIOACCOUNT', getenv('TWILIO_ACCOUNTID') );
+define('TWILIOAUTH', getenv('TWILIO_AUTHTOKEN') );
+
 // DEFINE SERVIDOR DE EMAIL ###########################
 define('MAILUSER', 'plazari@cloudsp.com.br');
 define('MAILPASS', 'pedro88042355');
@@ -17,7 +21,7 @@ define('MAILPORT', '587');
 define('MAILHOST', 'mail.cloudsp.com.br');
 
 // DEFINE BASE DO SITE ##############################
-define('HOME', 'http://pi-uscs.app');
+define('HOME', getenv('URL'));
 define('THEME', 'new');
 define('INCLUDE_PATH', HOME . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . THEME);
 define('REQUIRE_PATH', 'themes' . DIRECTORY_SEPARATOR . THEME);

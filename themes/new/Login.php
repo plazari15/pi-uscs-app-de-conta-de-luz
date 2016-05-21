@@ -23,23 +23,25 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m6  offset-m3">
-                <form action="" method="post">
+                <form action="<?= HOME ?>/action/login" method="post">
                     <div class="input-field col s12">
                         <h3></h3>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
-                        <input id="icon_prefix" type="email" class="validate">
+                        <input id="icon_prefix" name="email" type="email" class="validate">
                         <label for="icon_prefix">Email</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="icon_telephone" type="password" class="validate">
+                        <input id="icon_telephone" name="pass" type="password" class="validate">
                         <label for="icon_telephone">Senha</label>
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <div class="col s12" style="text-align: center">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
