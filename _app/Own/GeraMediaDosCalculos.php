@@ -30,7 +30,7 @@ class GeraMediaDosCalculos
         $this->Ano = $Ano;
         $Soma = 0;
         $Read = new Read();
-        $Read->ExeRead('calculos', "WHERE compartilhar = 1 AND mes = :mes AND ano = :ano AND tipo_conta = :tipo", "mes={$this->Mes}&ano={$this->Ano}&tipo={$this->tipo}");
+        $Read->ExeRead('calculos', "WHERE compartilhar = 1 AND mes = :mes AND ano = :ano AND tipo_conta = :tipo AND status = 1", "mes={$this->Mes}&ano={$this->Ano}&tipo={$this->tipo}");
         $this->Contas = $Read->GetRowCount();
         if($Read->GetResult()){
             foreach ($Read->GetResult() as $Result) {

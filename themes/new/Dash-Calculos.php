@@ -26,10 +26,13 @@ if(!$Login->CheckLogin()){
 <div class="container">
     <div class="row">
         <div class="col s12">
-            <h4>Seus últimos 5 calculos.</h4>
+
             <?php
             $Read = new \Conn\Read();
             $Read->ExeRead('calculos', "WHERE user_id = :id ORDER BY data DESC", "id={$_SESSION['userlogin']['user_id']}");
+            ?>
+            <h4>Você tem <?= $Read->GetRowCount() ?> calculo(s)</h4>
+            <?php
             if($Read->GetResult()):
                 ?>
                 <table class="bordered">
@@ -47,14 +50,24 @@ if(!$Login->CheckLogin()){
 
                     <tbody>
                     <?php foreach ($Read->GetResult() as $Calculos): extract($Calculos);?>
-                        <tr id="<?= $id ?>">
+                        <tr id="<?= $id ?>" class="<?= $status == 2 ? 'table_deleted' : '' ?>">
                             <td><?= date('d/m/Y', strtotime($data)) ?></td>
                             <td><?= $kwh ?></td>
                             <td>R$ <?= $valor ?></td>
                             <td>R$ <?= $valor_icms ?></td>
                             <td><?= $tipo_conta ?></td>
                             <td><i class="fa <?= $compartilhar != 1 ? 'text-false' : '' ?> fa-share  tooltipped" aria-hidden="true" data-tooltip="<?= $compartilhar != 1 ? 'Não Compartilhado' : 'Compartilhado' ?>" data-position="bottom" data-delay="50"></i></td>
-                            <td><i class="fa fa-trash excluir" aria-hidden="true" data-id="<?= $id ?>"></i></td>
+                            <td>
+                                <?php
+                                    if($status == '1'){
+                                        echo "<i class='fa fa-trash excluir acao' id='Excluir{$id}' aria-hidden='true' data-action='pre-excluir' data-id='{$id}'></i>";
+                                    }elseif($status == '2'){
+                                        echo "<i class='fa fa-undo undo tooltipped acao' id='Undo{$id}' data-position='bottom' data-action='desfaz-excluir' data-delay='50' data-tooltip='Desfaça a ação' aria-hidden='true' data-id='{$id}'></i>";
+                                    }
+                                ?>
+                                <i class='fa fa-undo undo tooltipped acao' id='Undo<?= $id ?>' data-position='bottom' data-action='desfaz-excluir' style="display: none" data-delay='50' data-tooltip='Desfaça a ação' aria-hidden='true' data-id='<?= $id ?>'></i>
+                                <i class='fa fa-trash excluir acao' id='Excluir<?= $id ?>' aria-hidden='true' style="display: none" data-action='pre-excluir' data-id='<?= $id ?>'></i>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

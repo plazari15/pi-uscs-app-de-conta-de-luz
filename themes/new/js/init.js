@@ -150,12 +150,13 @@
         return false;
     });
 
-    $('.excluir').click(function () {
+    $('.acao').click(function () {
         var ident = $(this).data('id');
-        if(confirm('Você tem certeza que deseja deletar o calculo?')){
+        var action = $(this).data('action');
+        if(confirm('Você tem certeza que deseja mover o calculo?')){
             $.ajax({
                 url: URL('ExcluirCalculo.php'),
-                data: {id : ident},
+                data: {action : action, id : ident},
                 dataType: 'json',
                 type: 'post',
                 beforeSend: function () {
@@ -164,7 +165,16 @@
                 success: function (RESPOSTA) {
                     Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
                     if(RESPOSTA.code){
-                        $("#"+ident).remove();
+                        if(RESPOSTA.action == 'delete'){
+                            $("#"+ident).addClass('table_deleted');
+                            $('#Excluir'+ident).fadeOut();
+                            $('#Undo'+ident).fadeIn();
+                        }else{
+                            $("#"+ident).removeClass('table_deleted');
+                            $('#Excluir'+ident).fadeIn();
+                            $('#Undo'+ident).fadeOut();
+                        }
+
                     }
                 }
             });

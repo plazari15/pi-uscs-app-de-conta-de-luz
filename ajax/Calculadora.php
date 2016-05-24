@@ -33,7 +33,8 @@ foreach ($Arr as $Dados){
         'valor_icms' => $CalculaValorICMS->ExibeICMS(),
         'compartilhar' => (isset($Post['ShareData']) == 1 ? $Post['ShareData'] : 0),
         'tipo_conta' => $Dados['tipo_residencia'],
-        'ano'       => $Dados['ano']
+        'ano'       => $Dados['ano'],
+        'status'    => 1
     );
     $Create->ExeCreate('calculos', $Dados);
 
