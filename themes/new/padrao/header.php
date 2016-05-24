@@ -11,7 +11,7 @@
             <?php
                 if(isset($_SESSION['userlogin'])){
                     ?>
-                    <a class='waves-effect waves-light btn btn_login dropdown-button btn' href='#' data-activates='dropdown1'>Meu Painel</a>
+                    <a class='waves-effect waves-light btn btn_login dropdown-button btn' href='<?= HOME ?>/dashboard' data-activates='dropdown1'>Meu Painel</a>
                <?php  }else{
                     ?>
                     <a class='waves-effect waves-light btn btn_login btn' href='<?= HOME ?>/dashboard/login'>Login!</a>

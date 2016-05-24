@@ -61,7 +61,11 @@ if(!$Login->CheckLogin()){
             <?php endif; ?>
 
         </div>
-</div>
+</div><!-- Fecha row -->
+    <div class="row">
+        <div class="divider"></div>
+        <div id="container"></div>
+    </div>
 </div>
 
     <!--footer-->
@@ -76,6 +80,67 @@ if(!$Login->CheckLogin()){
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="<?= INCLUDE_PATH ?>/js/materialize.js"></script>
     <script src="<?= INCLUDE_PATH ?>/js/init.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.js"></script>
+    <script src="<?= INCLUDE_PATH ?>/library/hightcharts/js/highcharts.js"></script>
+<?php  $Calculos = new \Own\CalculoMedioUsuario();
+
+?>
+<script type="text/javascript">
+    $(function () {
+        $('#container').highcharts({
+            title: {
+                text: 'Consumo de Energia',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Seu consumo de energia elétrica',
+                x: -20
+            },
+            xAxis: {
+                categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun',
+                    'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+            },
+            yAxis: {
+                title: {
+                    text: 'Concumo (kWh)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: 'kWh'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '2015',
+                data: [
+                    <?php
+                    for($i=1; $i <=12; $i++){
+                       echo $Calculos->ExecutaBuscaSomaUser($i, 2015, $_SESSION['userlogin']['user_id']).',';
+                    }
+                    ?>
+                ]
+            },
+                {
+                    name: '2016',
+                    data: [
+                        <?php
+                        for($i=1; $i <=12; $i++){
+                            echo $Calculos->ExecutaBuscaSomaUser($i, 2016, $_SESSION['userlogin']['user_id']).',';
+                        }
+                        ?>
+                    ]
+                }
+            ]
+        });
+    });
+</script>
 </body>
 </html>
