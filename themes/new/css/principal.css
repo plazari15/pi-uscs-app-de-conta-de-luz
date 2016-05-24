@@ -52,3 +52,11 @@
     max-width: 100%;
     height: auto !important;
 }
+
+.label_erro{
+    background-color: #95191a;
+}
+
+.label_sucesso{
+    background-color: #359510;
+}

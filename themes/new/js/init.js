@@ -115,7 +115,7 @@
                 Materialize.toast('Aguarde, cadastro iniciado', 2000);
             },
             success: function (RESPOSTA) {
-                Materialize.toast(RESPOSTA.text, 2000);
+                Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
             }
         });
        return false;

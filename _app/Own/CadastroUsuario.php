@@ -32,7 +32,6 @@ class CadastroUsuario
         if($this->CriaConta()){
             return true;
         }
-
         return false;
     }
 
