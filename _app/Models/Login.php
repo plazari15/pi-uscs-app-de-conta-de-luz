@@ -6,6 +6,9 @@
  * @copyright (c) 2014, Pedro Lazari    Pedro Lazari
  */
 namespace Models;
+use Conn\Read;
+use Helpers\Check;
+
 class Login {
 
     private $Level;
@@ -72,14 +75,14 @@ class Login {
 
     //Valida os dados e armazena os erros caso existam. Executa o login!
     private function SetLogin() {
-        if (!$this->Email || !$this->Senha || !Check::Email($this->Email)):
-            $this->Error = ['Informe seu email e a sua senha para realizar o seu login.', WS_ALERT];
+        if (!$this->Email || !$this->Senha):
+            $this->Error = ['Informe seu email e a sua senha para realizar o seu login.'];
             $this->Result = false;
         elseif (!$this->GetUser()):
-            $this->Error = ['Os dados informados não são compatíveis.', WS_ALERT];
+            $this->Error = ['Os dados informados não são compatíveis.'];
             $this->Result = FALSE;
         elseif ($this->Result['level'] < $this->Level):
-            $this->Error = ["<strong>{$this->Result['user_name']}</strong>, você não tem permissão para acessar esta área!", WS_ERROR];
+            $this->Error = ["<strong>{$this->Result['user_name']}</strong>, você não tem permissão para acessar esta área!"];
             $this->Result = false;
         else:
             $this->Execute();
@@ -91,8 +94,8 @@ class Login {
     private function GetUser() {
         $this->Senha = hash(Cript, $this->Senha);
 
-        $read = new Read;
-        $read->ExeRead("cloud_user", "WHERE user_email = :e AND user_pass = :p", "e={$this->Email}&p={$this->Senha}");
+        $read = new Read();
+        $read->ExeRead("usuarios", "WHERE email = :e AND password = :p", "e={$this->Email}&p={$this->Senha}");
         if ($read->GetResult()):
             $this->Result = $read->GetResult()[0];
             return true;
@@ -107,7 +110,7 @@ class Login {
             session_start();
         endif;
         $_SESSION['userlogin'] = $this->Result;
-        $this->Error = ["Olá {$this->Result['user_name']}, seja bem vindo(a). Aguarde Redirecionamento", WS_ACCEPT];
+        $this->Error = ["Olá {$this->Result['nome']}, seja bem vindo(a). Aguarde Redirecionamento"];
         $this->Result = true;
     
         // $_SESSION['userlogin'] = 

@@ -51,9 +51,7 @@ $App->get('/cadastro', function () {
 
 
 $App->post('/action/login', function () {
-    $Post = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-    echo '<pre>';
-    var_dump($Post);
+    
 });
 
 

@@ -1,4 +1,8 @@
 (function($){
+  function URL(url){
+      return 'http://pi-uscs.app/ajax/'+url;
+  }
+
   $(function(){
 
     $('.button-collapse').sideNav();
@@ -119,6 +123,29 @@
             }
         });
        return false;
+    });
+
+
+    $('.FormLogin').submit(function () {
+        var login = $(this).serialize();
+        $.ajax({
+            url: URL('Login.php'),
+            data: login,
+            dataType: 'json',
+            type: 'post',
+            beforeSend: function () {
+                Materialize.toast('Aguarde, processando...', 1000);
+            },
+            success: function (RESPOSTA) {
+                Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
+                if(RESPOSTA.code){
+                    window.setTimeout(function () {
+                        window.location.replace("/dashboard/painel");
+                    }, 2000)
+                }
+            }
+        });
+        return false;
     });
 
 })(jQuery); // end of jQuery name space

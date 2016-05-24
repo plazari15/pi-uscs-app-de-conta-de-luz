@@ -38,6 +38,7 @@ class CadastroUsuario
     
     protected function CriaConta(){
         $this->Array['timestamp'] = date('Y-m-d H:i:s');
+        $this->Array['level'] = 1;
         $this->Array['password'] = hash(Cript, $this->Array['password']);
         $Create = new Create();
         $Create->ExeCreate('usuarios', $this->Array);
