@@ -32,6 +32,7 @@
 
         <div class="col s12">
             <form id="calculadora"  action="" class="" method="post">
+                <input type="hidden" name="user_id" value="<?= isset($_SESSION['userlogin']['user_id']) ? $_SESSION['userlogin']['user_id'] : null ?>">
                 <?php for($i=1; $i <= 1; $i++): ?>
                     <div id="BlocoClonador" style="margin-top: 3%;" class="col s12">
                     <div class="col s11 m3 ">

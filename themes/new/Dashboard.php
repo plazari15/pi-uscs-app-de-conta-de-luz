@@ -26,8 +26,41 @@ if(!$Login->CheckLogin()){
 <div class="container">
     <div class="row">
         <div class="col s12">
-            <h3>Seja bem vindo, <?= $_SESSION['userlogin']['nome'] ?>.</h3>
-</div>
+            <h4>Seus últimos 5 calculos.</h4>
+            <?php
+                $Read = new \Conn\Read();
+                $Read->ExeRead('calculos', "WHERE user_id = :id ORDER BY data DESC LIMIT :limit", "id={$_SESSION['userlogin']['user_id']}&limit=5");
+                if($Read->GetResult()):
+            ?>
+            <table>
+                <thead>
+                <tr>
+                    <th data-field="id">Data</th>
+                    <th data-field="name">kWh</th>
+                    <th data-field="price">Valor</th>
+                    <th data-field="price">Valor com ICMS</th>
+                    <th data-field="price">Tipo de Conta</th>
+                    <th data-field="price"></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <?php foreach ($Read->GetResult() as $Calculos): extract($Calculos);?>
+                <tr>
+                    <td><?= date('d/m/Y', strtotime($data)) ?></td>
+                    <td><?= $kwh ?></td>
+                    <td>R$ <?= $valor ?></td>
+                    <td>R$ <?= $valor_icms ?></td>
+                    <td><?= $tipo_conta ?></td>
+                    <td><i class="fa fa-share-alt tooltipped" aria-hidden="true" data-tooltip="Compartilhado" data-position="bottom" data-delay="50"></i></td>
+                </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
+            <?php endif; ?>
+
+        </div>
 </div>
 </div>
 

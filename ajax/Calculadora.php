@@ -22,12 +22,15 @@ foreach ($Arr as $Dados){
     $i++;
     $Read->ExeRead('bandeiras', "WHERE year = :year AND mes = :mes", "year={$Dados['ano']}&mes={$Dados['mes']}");
     $CalculaValor->CalculaConta($Dados['consumo'], $Read->GetResult()[0]['cod_bandeira'], $Dados['tipo_residencia']);
+    $CalculaValorICMS = new \Own\CalculoICMS($Dados['consumo'], $Read->GetResult()[0]['cod_bandeira'], $Dados['tipo_residencia']);
     $Dados = array(
+        'user_id' => $Post['user_id'],
         'kwh' => $Dados['consumo'],
         'mes' => $Dados['mes'],
         'bandeira' => $Read->GetResult()[0]['cod_bandeira'],
         'data' => date("Y-m-d"),
         'valor' => $CalculaValor->RetornaValores(),
+        'valor_icms' => $CalculaValorICMS->ExibeICMS(),
         'compartilhar' => (isset($Post['ShareData']) == 1 ? $Post['ShareData'] : 0),
         'tipo_conta' => $Dados['tipo_residencia'],
         'ano'       => $Dados['ano']
@@ -39,7 +42,8 @@ foreach ($Arr as $Dados){
             'code' => true,
             'mes' => $Dados['mes'],
             'bandeira' => $Read->GetResult()[0]['cod_bandeira'],
-            'valor' =>$CalculaValor->RetornaValores()
+            'valor' =>$CalculaValor->RetornaValores(),
+            'valor_icms' => $CalculaValorICMS->ExibeICMS(),
         );
     }
 

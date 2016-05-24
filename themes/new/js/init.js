@@ -9,6 +9,7 @@
     $('.parallax').parallax();
     $('.slider').slider();
     //$('#SelecionaAno').material_select();
+      $('.tooltipped').tooltip({delay: 50});
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15, // Creates a dropdown of 15 years to control year
@@ -84,6 +85,7 @@
                         var bandeira = "Vermelha 2";
                     }
                     console.log("<p>O Resultado do cálculo referente ao mês "+value.mes+" é de R$"+value.valor+". A Bandeira vigente neste mês é "+bandeira+'</p>');
+                    console.log("Valor com ICMS"+value.valor_icms);
                     $('#result').append("<p>O Resultado do cálculo referente ao mês "+value.mes+" é de R$"+value.valor+". A Bandeira vigente neste mês é "+bandeira+'</p>');
                     //$('#result').html("O Resultado do cálculo referente ao mês "+RESPOSTA.mes+" é de "+RESPOSTA.valor+". A Bandeira vigente neste mês é "+bandeira);
                 })
