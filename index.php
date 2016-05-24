@@ -1,6 +1,6 @@
 <?php 
 // Aqui está o require do framework
-
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once ("_app/Config.inc.php");
@@ -42,6 +42,10 @@ $App->get('/graficos', function () {
 
 $App->get('/dashboard/login', function () {
     Render('Login.php');
+});
+
+$App->get('/dashboard', function () {
+    Render('Dashboard.php');
 });
 
 $App->get('/cadastro', function () {

@@ -140,7 +140,7 @@
                 Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
                 if(RESPOSTA.code){
                     window.setTimeout(function () {
-                        window.location.replace("/dashboard/painel");
+                        window.location.replace("/dashboard");
                     }, 2000)
                 }
             }
