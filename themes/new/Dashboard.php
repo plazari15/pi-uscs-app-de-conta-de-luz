@@ -32,7 +32,7 @@ if(!$Login->CheckLogin()){
                 $Read->ExeRead('calculos', "WHERE user_id = :id ORDER BY data DESC LIMIT :limit", "id={$_SESSION['userlogin']['user_id']}&limit=5");
                 if($Read->GetResult()):
             ?>
-            <table>
+            <table class="bordered">
                 <thead>
                 <tr>
                     <th data-field="id">Data</th>

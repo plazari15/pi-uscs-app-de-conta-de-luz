@@ -8,15 +8,25 @@
             <li><a href="<?= HOME ?>/graficos" class="menu_text" title="Nosso time">Graficos<span class="new badge"></span></a></li>
 <!--            <li><a href="#" title="Como Calcular">Como Calcular<span class="new badge">Em Breve!</span></a></li>-->
             <li><a href="<?= HOME ?>/calculadora" class="waves-effect waves-light btn btn_calcule" title="Calcule">CALCULE!</a></li>
-            <a class='waves-effect waves-light btn btn_login dropdown-button btn' href='#' data-activates='dropdown1'>Meu Painel</a>
+            <?php
+                if(isset($_SESSION['userlogin'])){
+                    ?>
+                    <a class='waves-effect waves-light btn btn_login dropdown-button btn' href='#' data-activates='dropdown1'>Meu Painel</a>
+               <?php  }else{
+                    ?>
+                    <a class='waves-effect waves-light btn btn_login btn' href='<?= HOME ?>/dashboard/login'>Login!</a>
+            <?php
+                }
+            ?>
+
+
         </ul>
         <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="<?= HOME ?>/dashboard/login">Login</a></li>
-            <li><a href="#!">Minha Conta</a></li>
-            <li><a href="#!">Meus Calculos</a></li>
-            <li><a href="#!">Ranking da Economia</a></li>
+            <li><a href="<?= HOME ?>/dashboard/conta">Minha Conta</a></li>
+            <li><a href="<?= HOME ?>/dashboard/calculos">Meus Calculos</a></li>
+            <li><a href="<?= HOME ?>/dashboard/ranking">Ranking da Economia</a></li>
             <li class="divider"></li>
-            <li><a href="#!">Sair</a></li>
+            <li><a href="<?= HOME ?>/dashboard/sair"">Sair</a></li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
             <li><a href="<?= HOME ?>" title="Home">Home</a></li>

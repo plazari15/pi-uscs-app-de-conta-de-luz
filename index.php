@@ -52,6 +52,15 @@ $App->get('/dashboard', function () {
     Render('Dashboard.php');
 });
 
+$App->get('/dashboard/conta', function () {
+    Render('Conta.php');
+});
+
+$App->get('/dashboard/sair', function () use($App) {
+    unset($_SESSION['userlogin']);
+   header('Location: '.HOME.'/dashboard/login');
+});
+
 $App->get('/cadastro', function () {
     Render('cadastro.php');
 });
