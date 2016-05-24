@@ -44,6 +44,10 @@ $App->get('/dashboard/login', function () {
     Render('Login.php');
 });
 
+$App->get('/dashboard/calculos', function () {
+    Render('Dash-Calculos.php');
+});
+
 $App->get('/dashboard', function () {
     Render('Dashboard.php');
 });

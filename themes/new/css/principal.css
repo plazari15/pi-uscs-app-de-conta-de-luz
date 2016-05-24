@@ -60,3 +60,9 @@
 .label_sucesso{
     background-color: #359510;
 }
+
+.text-false{
+    color: #95191a;
+}
+
+.table_deleted{background-color: #efeef0};

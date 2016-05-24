@@ -150,4 +150,26 @@
         return false;
     });
 
+    $('.excluir').click(function () {
+        var ident = $(this).data('id');
+        if(confirm('Você tem certeza que deseja deletar o calculo?')){
+            $.ajax({
+                url: URL('ExcluirCalculo.php'),
+                data: {id : ident},
+                dataType: 'json',
+                type: 'post',
+                beforeSend: function () {
+                    Materialize.toast('Aguarde, processando...', 1000);
+                },
+                success: function (RESPOSTA) {
+                    Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
+                    if(RESPOSTA.code){
+                        $("#"+ident).remove();
+                    }
+                }
+            });
+        }
+        return false;
+    });
+
 })(jQuery); // end of jQuery name space
