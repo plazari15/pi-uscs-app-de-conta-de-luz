@@ -60,7 +60,7 @@ Render('padrao/header.php'); ?>
 <script src="<?= INCLUDE_PATH ?>/js/materialize.js"></script>
 <script src="<?= INCLUDE_PATH ?>/js/init.js"></script>
 <script src="<?= INCLUDE_PATH ?>/library/hightcharts/js/highcharts.js"></script>
-<!--<script src="--><?//= INCLUDE_PATH ?><!--/library/hightcharts/js/modules/exporting.js"></script>-->
+<script src="<?= INCLUDE_PATH ?>/library/hightcharts/js/modules/exporting.js"></script>
 </body>
 </html>
 <!-- GRAFICO ONE -->

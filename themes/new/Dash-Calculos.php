@@ -29,7 +29,7 @@ if(!$Login->CheckLogin()){
 
             <?php
             $Read = new \Conn\Read();
-            $Read->ExeRead('calculos', "WHERE user_id = :id ORDER BY data DESC", "id={$_SESSION['userlogin']['user_id']}");
+            $Read->ExeRead('calculos', "WHERE user_id = :id AND status = 1 ORDER BY data DESC", "id={$_SESSION['userlogin']['user_id']}");
             ?>
             <h4>Você tem <?= $Read->GetRowCount() ?> calculo(s)</h4>
             <?php

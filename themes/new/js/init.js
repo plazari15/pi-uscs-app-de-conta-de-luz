@@ -182,4 +182,21 @@
         return false;
     });
 
+    $('.FormCadastroEdit').submit(function () {
+        var Form = $(this).serialize();
+            $.ajax({
+                url: URL('EditarCadastro.php'),
+                data: Form,
+                dataType: 'json',
+                type: 'post',
+                beforeSend: function () {
+                    Materialize.toast('Aguarde, processando...', 1000);
+                },
+                success: function (RESPOSTA) {
+                    Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
+                }
+            });
+        return false;
+    });
+
 })(jQuery); // end of jQuery name space

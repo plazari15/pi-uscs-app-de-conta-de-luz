@@ -76,7 +76,7 @@
             </div>
 
             <div class="row" style="text-align: center">
-               <button class="waves-effect waves-light btn">Cadastrar</button>
+               <button class="waves-effect waves-light btn">Atualizar Dados</button>
             </div>
         </form>
     </div>
