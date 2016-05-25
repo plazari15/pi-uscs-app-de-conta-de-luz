@@ -14,6 +14,12 @@
 <!-- BODY -->
 <!--header-->
 <?= Render('padrao/header.php'); ?>
+<?php
+$Login = new \Models\Login(1);
+if(!$Login->CheckLogin()){
+    header("Location: ".HOME."/dashboard/login");
+}
+?>
 <!-- header-->
 
 <!-- GRID -->

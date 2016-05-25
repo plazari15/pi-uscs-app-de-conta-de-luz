@@ -65,4 +65,9 @@
     color: #95191a;
 }
 
-.table_deleted{background-color: #efeef0};
+.table_deleted{background-color: #efeef0}
+
+
+.btn_blue{
+    background-color: #3042A5!important;
+}

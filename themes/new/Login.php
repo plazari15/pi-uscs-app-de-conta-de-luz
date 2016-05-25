@@ -23,6 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col s12 m6  offset-m3">
+                <h4>Faça seu login</h4>
                 <form class="FormLogin" action="<?= HOME ?>/action/login" method="post">
                     <div class="input-field col s12">
                         <h3></h3>
@@ -39,15 +40,23 @@
                     </div>
                     <div class="col s6" style="text-align: center">
 
-                        <button class="btn waves-effect waves-light" type="submit">Login
+                        <button class="btn waves-effect waves-light btn_blue" type="submit">Login
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
-
-                    <div class="col s6" style="text-align: center">
-                        <a href="<?= HOME ?>/cadastro">Faça seu cadastro!</a>
+                    <div class="col s1" style="text-align: center">
+                       <span style="font-size: 20px;">OU</span>
+                    </div>
+                    <div class="col s5" style="text-align: center">
+                        <a href="<?= HOME ?>/recuperar/senha">Recuperar Senha!</a>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6  offset-m3">
+                <a href="<?= HOME ?>/cadastro"><button class="btn waves-effect waves-light" style="display: block; width: 100%; background-color:#8BDC1C" type="submit">Cadastre-se
+                </button></a>
             </div>
         </div>
     </div>
@@ -69,5 +78,6 @@
     <script src="<?= INCLUDE_PATH ?>/js/materialize.js"></script>
     <script src="<?= INCLUDE_PATH ?>/js/init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.js"></script>
+    <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
 </body>
 </html>

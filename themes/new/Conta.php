@@ -15,7 +15,12 @@
 <!--header-->
 <?= Render('padrao/header.php'); ?>
 <!-- header-->
-
+<?php
+$Login = new \Models\Login(1);
+if(!$Login->CheckLogin()){
+    header("Location: ".HOME."/dashboard/login");
+}
+?>
 <!-- GRID -->
 <div class="container">
     <div class="row">
@@ -73,7 +78,9 @@
                         Sim
                     </label>
                 </div>
+
             </div>
+
 
             <div class="row" style="text-align: center">
                <button class="waves-effect waves-light btn">Atualizar Dados</button>

@@ -4,7 +4,6 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once ("_app/Config.inc.php");
-
 /**
  * Rotas do site
  */
@@ -69,17 +68,6 @@ $App->get('/cadastro', function () {
     Render('cadastro.php');
 });
 
-
-
-$App->post('/action/login', function () {
-    
-});
-
-
-
-$App->get('/books', function ($request, $response, $args) {
-    Render('index.php');
-});
 
 
 $App->run();

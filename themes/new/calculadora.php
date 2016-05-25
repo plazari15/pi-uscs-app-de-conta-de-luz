@@ -90,7 +90,7 @@
 
 
                 <div class="col s12">
-                    <button class="waves-effect waves-light btn" style="margin-top: 10%;"><i class="material-icons left">send</i>Processar</button>
+                    <button class="waves-effect waves-light btn btn_blue" style="margin-top: 10%;"><i class="material-icons left">send</i>Processar</button>
                 </div>
                 
 
