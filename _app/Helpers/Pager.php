@@ -6,6 +6,8 @@
  * @copyright (c) 2014, Pedro Lazari    Pedro Lazari
  */
 namespace Helpers;
+use Conn\Read;
+
 class Pager {
 
     /** DEFINE O PAGER */
@@ -117,26 +119,26 @@ class Pager {
      * ****************************************
      */
     private function GetSyntax() {
-        $Read = new Read;
+        $Read = new Read();
         $Read->ExeRead($this->Tabela, $this->Termos, $this->Places);
         $this->Rows = $Read->GetRowCount();
         if ($this->Rows > $this->Limit):
             $Paginas = ceil($this->Rows / $this->Limit);
             $MaxLinks = $this->MaxLinks;
 
-            $this->Paginator = "<ul class=\"paginator\">";
-            $this->Paginator .= "<li><a title=\"{$this->First}\" href=\"{$this->Link}1\">{$this->First}</a></li>";
+            $this->Paginator = "<ul class=\"pagination\">";
+            $this->Paginator .= "<li class=\"waves-effect\"><a title=\"{$this->First}\" href=\"{$this->Link}1\">{$this->First}</a></li>";
             for ($iPag = $this->Page - $MaxLinks; $iPag <= $this->Page - 1; $iPag ++):
                 if ($iPag >= 1):
-                    $this->Paginator .= "<li><a title=\"Página {$iPag}\" href=\"{$this->Link}{$iPag}\">{$iPag}</a></li>";
+                    $this->Paginator .= "<li  class=\"waves-effect\"><a title=\"Página {$iPag}\" href=\"{$this->Link}{$iPag}\">{$iPag}</a></li>";
                 endif;
             endfor;
             
-            $this->Paginator .="<li><span class=\"current\">{$this->Page}</span></li>";
+            $this->Paginator .="<li  class=\"waves-effect active\" style=' color: #fff'>{$this->Page}</li>";
             
              for ($dPag = $this->Page + 1; $dPag <= $this->Page + $MaxLinks; $dPag ++):
                 if ($dPag <= $Paginas):
-                    $this->Paginator .= "<li><a title=\"Página {$dPag}\" href=\"{$this->Link}{$dPag}\">{$dPag}</a></li>";
+                    $this->Paginator .= "<li  class=\"waves-effect\"><a title=\"Página {$dPag}\" href=\"{$this->Link}{$dPag}\">{$dPag}</a></li>";
                 endif;
             endfor;
 

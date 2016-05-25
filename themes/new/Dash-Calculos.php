@@ -22,16 +22,23 @@ $Login = new \Models\Login(1);
 if(!$Login->CheckLogin()){
     header("Location: ".HOME."/dashboard/login");
 }
+$Pagina = filter_input(INPUT_GET, 'pagina', FILTER_VALIDATE_INT );
+$Pagina = (!empty($Pagina) ? $Pagina : '1');
 ?>
 <div class="container">
     <div class="row">
         <div class="col s12">
 
             <?php
+            $Paginacao = new \Helpers\Pager('calculos?pagina=', 'Primeira Página', 'Última Página', 10);
+            $Paginacao->ExePager($Pagina, 10);
+            $Paginacao->ExePaginator('calculos', "WHERE user_id = :id ORDER BY data DESC", "id={$_SESSION['userlogin']['user_id']}");
             $Read = new \Conn\Read();
-            $Read->ExeRead('calculos', "WHERE user_id = :id AND status = 1 ORDER BY data DESC", "id={$_SESSION['userlogin']['user_id']}");
+            $Read->ExeRead('calculos', "WHERE user_id = :id ORDER BY data DESC LIMIT :limit OFFSET :offset", "id={$_SESSION['userlogin']['user_id']}&limit={$Paginacao->getLimit()}&offset={$Paginacao->getOffset()}" );
             ?>
-            <h4>Você tem <?= $Read->GetRowCount() ?> calculo(s)</h4>
+            <h4>Meus Calculos</h4>
+            <p>Todos os seus calculos são exibidos nesta página</p>
+            <div class="mensagem"></div>
             <?php
             if($Read->GetResult()):
                 ?>
@@ -74,6 +81,11 @@ if(!$Login->CheckLogin()){
                 </table>
 
             <?php endif; ?>
+
+            <?php
+            echo  $Paginacao->GetPaginator();
+            ?>
+
 
         </div>
     </div>

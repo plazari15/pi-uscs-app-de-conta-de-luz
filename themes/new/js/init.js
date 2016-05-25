@@ -173,7 +173,8 @@
                             $("#"+ident).removeClass('table_deleted');
                             $('#Excluir'+ident).fadeIn();
                             $('#Undo'+ident).fadeOut();
-                        }
+                            }
+
 
                     }
                 }
