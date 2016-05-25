@@ -37,10 +37,15 @@
                         <input id="icon_telephone" name="Senha" type="password" class="validate">
                         <label for="icon_telephone">Senha</label>
                     </div>
-                    <div class="col s12" style="text-align: center">
+                    <div class="col s6" style="text-align: center">
+
                         <button class="btn waves-effect waves-light" type="submit">Login
                             <i class="material-icons right">send</i>
                         </button>
+                    </div>
+
+                    <div class="col s6" style="text-align: center">
+                        <a href="<?= HOME ?>/cadastro">Faça seu cadastro!</a>
                     </div>
                 </form>
             </div>

@@ -24,6 +24,7 @@
         <ul id='dropdown1' class='dropdown-content'>
             <li><a href="<?= HOME ?>/dashboard">Dashboard</a></li>
             <li><a href="<?= HOME ?>/dashboard/conta">Minha Conta</a></li>
+            <li><a href="<?= HOME ?>/dashboard/token">Meu Token</a></li>
             <li><a href="<?= HOME ?>/dashboard/calculos">Meus Calculos</a></li>
             <li><a href="<?= HOME ?>/dashboard/ranking">Ranking da Economia</a></li>
             <li class="divider"></li>

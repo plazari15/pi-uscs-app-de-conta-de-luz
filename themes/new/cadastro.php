@@ -46,9 +46,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s6">
                     <input id="email" type="email"  name="email" class="validate">
                     <label for="email">Email</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <input id="email" type="text"  name="token" class="validate" placeholder="Insira uma chave de recuperação" length="6">
+                    <label for="email">Token Mestre (Use-o para recuperar sua senha)</label>
                 </div>
             </div>
 

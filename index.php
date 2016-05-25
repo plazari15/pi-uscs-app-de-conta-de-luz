@@ -56,6 +56,10 @@ $App->get('/dashboard/conta', function () {
     Render('Conta.php');
 });
 
+$App->get('/dashboard/token', function () {
+    Render('Token.php');
+});
+
 $App->get('/dashboard/sair', function () use($App) {
     unset($_SESSION['userlogin']);
    header('Location: '.HOME.'/dashboard/login');

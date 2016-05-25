@@ -122,6 +122,10 @@
             },
             success: function (RESPOSTA) {
                 Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
+                if(RESPOSTA.class == 'label_sucesso'){
+                        window.location.replace("/dashboard/login");
+                }
+
             }
         });
        return false;
@@ -197,6 +201,23 @@
                     Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
                 }
             });
+        return false;
+    });
+
+    $('.FormToken').submit(function () {
+        var Form = $(this).serialize();
+        $.ajax({
+            url: URL('EditarToken.php'),
+            data: Form,
+            dataType: 'json',
+            type: 'post',
+            beforeSend: function () {
+                Materialize.toast('Aguarde, processando...', 1000);
+            },
+            success: function (RESPOSTA) {
+                Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
+            }
+        });
         return false;
     });
 

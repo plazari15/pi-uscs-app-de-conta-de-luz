@@ -40,6 +40,7 @@ class CadastroUsuario
         $this->Array['timestamp'] = date('Y-m-d H:i:s');
         $this->Array['level'] = 1;
         $this->Array['password'] = hash(Cript, $this->Array['password']);
+        $this->Array['token'] = hash(Cript, $this->Array['token']);
         $Create = new Create();
         $Create->ExeCreate('usuarios', $this->Array);
         if($Create->GetResult()){
