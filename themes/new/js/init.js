@@ -221,4 +221,25 @@
         return false;
     });
 
+
+    $('.SendRanking').click(function () {
+        var ID = $(this).data('id');
+        if(confirm('Você tem certeza que deseja enviar este calculo para o ranking? Esta ação é irreversível!')){
+            $.ajax({
+                url: URL('SendRanking.php'),
+                data: {calc:ID},
+                dataType: 'json',
+                type: 'post',
+                beforeSend: function () {
+                    Materialize.toast('Aguarde, processando...', 1000);
+                },
+                success: function (RESPOSTA) {
+                    Materialize.toast(RESPOSTA.text, 2000, RESPOSTA.class);
+                }
+            });
+        }
+
+        return false;
+    });
+
 })(jQuery); // end of jQuery name space

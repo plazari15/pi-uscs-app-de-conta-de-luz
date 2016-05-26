@@ -39,6 +39,10 @@ $App->get('/graficos', function () {
     Render('graficos.php');
 });
 
+$App->get('/ranking', function () {
+    Render('Ranking.php');
+});
+
 $App->get('/dashboard/login', function () {
     Render('Login.php');
 });
@@ -57,6 +61,10 @@ $App->get('/dashboard/conta', function () {
 
 $App->get('/dashboard/token', function () {
     Render('Token.php');
+});
+
+$App->get('/dashboard/ranking', function () {
+    Render('Dash-Ranking.php');
 });
 
 $App->get('/dashboard/sair', function () use($App) {
