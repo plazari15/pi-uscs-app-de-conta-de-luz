@@ -4,7 +4,7 @@
             <li><a href="<?= HOME ?>" class="menu_text" title="Home">Home</a></li>
             <li><a href="<?= HOME ?>/sobre/quem-somos" class="menu_text" title="Quem Somos">Nossa Missão</a></li>
             <li><a href="<?= HOME ?>/sobre/time"  class="menu_text" title="Nosso time">Nosso Time</a></li>
-            <li><a href="<?= HOME ?>/sobre/time" class="menu_text" title="Nosso time">Ranking da Economia<span class="new badge"></span></a></li>
+            <li><a href="<?= HOME ?>/ranking" class="menu_text" title="Nosso time">Ranking da Economia<span class="new badge"></span></a></li>
             <li><a href="<?= HOME ?>/graficos" class="menu_text" title="Nosso time">Graficos<span class="new badge"></span></a></li>
 <!--            <li><a href="#" title="Como Calcular">Como Calcular<span class="new badge">Em Breve!</span></a></li>-->
             <li><a href="<?= HOME ?>/calculadora" class="waves-effect waves-light btn btn_calcule" title="Calcule">CALCULE!</a></li>

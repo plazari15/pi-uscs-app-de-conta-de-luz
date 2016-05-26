@@ -16,7 +16,7 @@
 <?= Render('padrao/header.php'); ?>
 <!-- header-->
 <div class="parallax-container">
-    <div class="parallax"><img src="<?= INCLUDE_PATH ?>/images/equipe.jpg"></div>
+    <div class="parallax"><img src="<?= INCLUDE_PATH ?>/images/team.jpg"></div>
 </div>
 
 <div class="container">

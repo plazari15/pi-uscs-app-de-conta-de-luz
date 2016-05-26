@@ -36,8 +36,9 @@ if(!$Read->GetResult()){
 }else{
     $Result = array(
         'code' => false,
-        'text' => 'Você já esta participando do ranking este mês',
+        'text' => 'Você não pode participar do ranking com dois dados',
         'class' => ''
     );
 }
+sleep(1);
 echo json_encode($Result);

@@ -15,11 +15,10 @@
 <!--header-->
 <?php
 Render('padrao/header.php');
-$Media = new \Own\Ranking();
 ?>
 <!-- header-->
 <div class="parallax-container">
-    <div class="parallax"><img src="<?= INCLUDE_PATH ?>/images/sobre-nos.jpg"></div>
+    <div class="parallax"><img src="<?= INCLUDE_PATH ?>/images/ranking.jpg"></div>
 </div>
 
 <div class="container">
@@ -31,14 +30,53 @@ $Media = new \Own\Ranking();
 </div>
 
 <div class="container">
-    <?php
-    $Read = new \Conn\Read();
-    $Read->ExeRead("usuarios", "WHERE ranking = 1");
-    foreach ($Read->GetResult() as $User){
-        extract($User);
-        echo $Media->ExibeResultado(date('n'),date('Y') ,$user_id ) . '<br>';
-    }
-    ?>
+    <table class="bordered">
+        <thead>
+        <tr>
+            <th data-field="id">Colocação</th>
+            <th data-field="id">Nome</th>
+            <th data-field="id">Sobrenome</th>
+            <th data-field="name">kWh</th>
+            <th data-field="name"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <?php
+        $Read = new \Conn\Read();
+        $mes = date('n');
+        $ano = date('Y');
+        $i = 0;
+        $Read->ExeRead("ranking", "WHERE mes = :mes AND ano = :ano order by kwh ASC", "mes={$mes}&ano={$ano}");
+        foreach ($Read->GetResult() as $User){
+            extract($User);
+            $Read->ExeRead('usuarios', "WHERE user_id = :id", "id={$user_id}");
+            $i++;
+            ?>
+            <tr>
+                <td><?= $i ?></td>
+                <td><?= $Read->GetResult()[0]['nome'] ?></td>
+                <td><?= $Read->GetResult()[0]['sobrenome'] ?></td>
+                <td><?= $kwh ?></td>
+                <td>
+                    <?php
+                        if($i == 1){
+                            echo '<i style="color: #ffd700" class="fa fa-certificate tooltipped" data-position="bottom" data-delay="50" data-tooltip="Primeiro Lugar" aria-hidden="true"></i>';
+                        }elseif($i == 2){
+                            echo '<i style="color: #c0c0c0 " class="fa fa-certificate tooltipped" data-position="bottom" data-delay="50" data-tooltip="Segundo Lugar" aria-hidden="true"></i>';
+                        }elseif($i == 3){
+                            echo '<i style="color: #cd7f32 " class="fa fa-certificate tooltipped" data-position="bottom" data-delay="50" data-tooltip="Terceiro Lugar" aria-hidden="true"></i>';
+                        }
+                    ?>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
+
+
+        </tbody>
+    </table>
 </div>
 
 <div class="container">
