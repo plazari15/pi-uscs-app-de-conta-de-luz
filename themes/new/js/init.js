@@ -1,6 +1,6 @@
 (function($){
   function URL(url){
-      return 'http://pi-uscs.app/ajax/'+url;
+      return 'http://pedro-test.com/ajax/'+url;
   }
 
   $(function(){
@@ -72,23 +72,25 @@
                 Materialize.toast('Hora de Calcular...', 4000);
             },
             success: function ( RESPOSTA ) {
-                $('#primeiro').fadeOut();
-                $('#segundo').fadeIn();
-                $.each(RESPOSTA, function (key, value) {
-                    if(value.bandeira == 1){
-                        var bandeira = "Verde";
-                    }else if(value.bandeira == 2){
-                        var bandeira = "Amarela";
-                    }else if(value.bandeira == 3){
-                        var bandeira = "Vermelha";
-                    }else if(value.bandeira == 4){
-                        var bandeira = "Vermelha 2";
-                    }
-                    console.log("<p>O Resultado do cálculo referente ao mês "+value.mes+" é de R$"+value.valor+". A Bandeira vigente neste mês é "+bandeira+'</p>');
-                    console.log("Valor com ICMS"+value.valor_icms);
-                    $('#result').append("<p>O Resultado do cálculo referente ao mês "+value.mes+" é de R$"+value.valor+". A Bandeira vigente neste mês é "+bandeira+'</p>');
-                    //$('#result').html("O Resultado do cálculo referente ao mês "+RESPOSTA.mes+" é de "+RESPOSTA.valor+". A Bandeira vigente neste mês é "+bandeira);
-                })
+                window.location.replace('http://pi-uscs.app/resultado?id='+RESPOSTA.calculo_id);
+                //console.log(RESPOSTA.calculo_id);
+                // $('#primeiro').fadeOut();
+                // $('#segundo').fadeIn();
+                // $.each(RESPOSTA, function (key, value) {
+                //     if(value.bandeira == 1){
+                //         var bandeira = "Verde";
+                //     }else if(value.bandeira == 2){
+                //         var bandeira = "Amarela";
+                //     }else if(value.bandeira == 3){
+                //         var bandeira = "Vermelha";
+                //     }else if(value.bandeira == 4){
+                //         var bandeira = "Vermelha 2";
+                //     }
+                //     // console.log("<p>O Resultado do cálculo referente ao mês "+value.mes+" é de R$"+value.valor+". A Bandeira vigente neste mês é "+bandeira+'</p>');
+                //     // console.log("Valor com ICMS"+value.valor_icms);
+                //     // $('#result').append("<p>O Resultado do cálculo referente ao mês <b>"+value.mes+"</b> é de <b>R$"+value.valor+".</b> A Bandeira vigente neste mês é "+bandeira+'</p>');
+                //     //$('#result').html("O Resultado do cálculo referente ao mês "+RESPOSTA.mes+" é de "+RESPOSTA.valor+". A Bandeira vigente neste mês é "+bandeira);
+                // })
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 if(xhr.status == 301){
@@ -242,17 +244,17 @@
         return false;
     });
 
-    $( document ).ready(function () {
-        var ID = $(this).data('id');
-            $.ajax({
-                url: 'https://api.instagram.com/v1/tags/PiUscs/media/recent?access_token=250273905.5b9e1e6.5c7e5443ea484ed0ba78cb2288d3fc8c',
-                dataType: 'jsonp',
-                type: 'GET',
-                success: function (RESPOSTA) {
-                    console.log(RESPOSTA);
-                }
-            });
-        return false;
-    });
+    // $( document ).ready(function () {
+    //     var ID = $(this).data('id');
+    //         $.ajax({
+    //             url: 'https://api.instagram.com/v1/tags/PiUscs/media/recent?access_token=250273905.5b9e1e6.5c7e5443ea484ed0ba78cb2288d3fc8c',
+    //             dataType: 'jsonp',
+    //             type: 'GET',
+    //             success: function (RESPOSTA) {
+    //                 console.log(RESPOSTA);
+    //             }
+    //         });
+    //     return false;
+    // });
 
 })(jQuery); // end of jQuery name space

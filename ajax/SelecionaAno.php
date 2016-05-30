@@ -31,5 +31,5 @@ if($Read->GetResult()){
 }
 
 //$Result['select'] .= "</select>";
-sleep(4);
+sleep(1);
 echo json_encode($Select);

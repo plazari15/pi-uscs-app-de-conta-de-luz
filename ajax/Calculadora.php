@@ -6,6 +6,25 @@ $Read = new \Conn\Read();
 $Create = new \Conn\Create();
 $CalculaValor = new \Own\CalculaValorContaDeLuz();
 $Result = array();
+function GetNomeBandeira($Code){
+    switch ($Code){
+        case '1':
+            return 'Bandeira Verde';
+        break;
+
+        case '2':
+            return 'Bandeira Amarela';
+            break;
+
+        case '3':
+            return 'Bandeira Vermelha';
+            break;
+
+        case '4':
+            return 'Bandeira Vermelha Patamar 2';
+            break;
+    }
+}
 
 $Arr = array();
 for($i=0; $i < count($Post['ano']); $i++){
@@ -34,12 +53,14 @@ foreach ($Arr as $Dados){
         'compartilhar' => (isset($Post['ShareData']) == 1 ? $Post['ShareData'] : 0),
         'tipo_conta' => $Dados['tipo_residencia'],
         'ano'       => $Dados['ano'],
-        'status'    => 1
+        'status'    => 1,
+        'user_ip'   => hash(Cript, $_SERVER['REMOTE_ADDR'] )
     );
     $Create->ExeCreate('calculos', $Dados);
 
     if($Create->GetResult()){
-        $Result[] = array(
+        $Result = array(
+            'calculo_id' => $Create->GetResult(),
             'code' => true,
             'mes' => $Dados['mes'],
             'bandeira' => $Read->GetResult()[0]['cod_bandeira'],

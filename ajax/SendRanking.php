@@ -24,20 +24,20 @@ if(!$Read->GetResult()){
         $Result = array(
             'code' => true,
             'text' => 'Prabéns! Sua participação no ranking está garantida"',
-            'class' => ''
+            'class' => 'label_sucesso'
         );
     }else{
         $Result = array(
             'code' => false,
             'text' => 'Estamos com problemas em nossa base de dados.',
-            'class' => ''
+            'class' => 'label_erro'
         );
     }
 }else{
     $Result = array(
         'code' => false,
         'text' => 'Você não pode participar do ranking com dois dados',
-        'class' => ''
+        'class' => 'label_erro'
     );
 }
 sleep(1);

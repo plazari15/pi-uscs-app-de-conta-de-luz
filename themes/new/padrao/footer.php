@@ -27,7 +27,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-            Copyright Ecolights. Desenvolvido por <a href="<?= HOME ?>/sobre/time">EcoLights</a>. Usando <a href="http://materializecss.com" target="_blank">Materialize</a>
+            Copyright Ecolights. Desenvolvido por <a style="color: #fff;" href="mailto:plazari96@gmail.com">Pedro Lazari</a>. Usando <a style="color: #fff;" href="http://materializecss.com" target="_blank">Materialize</a>
         </div>
     </div>
 </footer>

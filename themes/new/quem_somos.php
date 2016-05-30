@@ -21,33 +21,77 @@ Render('padrao/header.php'); ?>
 </div>
 
 <div class="container">
-    <h2 class="como_funciona">Quem Somos?</h2>
-
     <div class="row">
-        <div class="col s12 quem_somos_text ">
-            <div class="col s4"><img class="z-depth-1 full-width" width="300" src="<?= INCLUDE_PATH ?>/images/familia.jpg"></div>
-            <div class="col m8 quem_somos_text"><h5 class="como_funciona">Pensamos em sua família</h5>
-                Somos uma ONG que pensa em sua familia. Queremos oferecer para você um cálculo preciso de sua conta de luz
-            e outras informações para sua vida.</div>
-        </div>
+        <h3 class="como_funciona">Quem Somos?</h3>
+        <div class="col s12">
 
-        <div class="col s12 quem_somos_text ">
-            <div class="col m8 quem_somos_text">
-                <h5 class="como_funciona">Somos transparentes</h5>
-                Somos TRANSPARENTES!Levamos até você toda a informação que precisa sobre
-            a conta de luz em sua cidade ou estado, nosso site está carregado de informações úteis a todos.</div>
-            <div class="col s4"><img class="z-depth-1 full-width" width="300" src="<?= INCLUDE_PATH ?>/images/informacao.jpg"></div>
-        </div>
+            <div class="col s12">
+                <p> EcoLight é uma startup com objetivo de informatizar a população  sobre o consumo de energia e consequentemente ajudá-la a exercer o seu uso
+                    consciente, já que hoje estamos vivendo uma crise financeira crescente.</p>
 
-        <div class="col s12 quem_somos_text ">
-            <div class="col s4"><img class="z-depth-1 full-width" width="300" src="<?= INCLUDE_PATH ?>/images/dinheiro.jpg"></div>
-            <div class="col m8 quem_somos_text">
-                <h5 class="como_funciona">Você vai economizar!</h5>
-                Faça um planejamento com antecedência e saiba o quanto vai gastar com a sua conta de luz. Nós te ajudaremos
-            a cuidar de tudo!</div>
+                <p>O que começou como um projeto simples de faculdade, tornou-se uma ONG com o intuito
+                    de ajudar toda uma população, auxiliando de maneira prática e funcional os usuários
+                    a conseguir economizar energia e, consequentemente, diminuir despesas.</p>
+
+                <p><b>MISSÃO:</b> Conscientizar os usuários a economizar energia e despesas com uma interface simples e minimalista.</p>
+
+                <p><b>VISÃO:</b> Ser reconhecida como uma ONG de respeito e incentivar campanhas de economia em todo o país.</p>
+            </div>
         </div>
     </div>
-</div>
+
+
+    <div class="row">
+        <div class="col s12  ">
+            <h3 class="como_funciona">Nossas Caracteristicas</h3>
+            <div class="col m12">
+                <h5 class="como_funciona">Pensamos em sua família</h5>
+                Somos uma ONG que pensa em sua familia. Queremos oferecer para você um cálculo preciso de sua conta de luz
+                e outras informações para sua vida.
+                <div class="divider"></div>
+                <h5 class="como_funciona">Somos transparentes</h5>
+                Somos TRANSPARENTES! Levamos até você toda a informação que precisa sobre
+            a conta de luz em sua cidade ou estado, nosso site está carregado de informações úteis a todos.
+                <div class="divider"></div>
+                <h5 class="como_funciona">Você vai economizar!</h5>
+                Faça um planejamento com antecedência e saiba o quanto vai gastar com a sua conta de luz. Nós te ajudaremos
+                a cuidar de tudo!</div>
+            </div>
+        </div>
+
+    </div>
+
+<?php
+$x = 6;
+$y = 4;
+$z = $x + $y;
+
+$z = $y-- + ($z +2);
+$y = ++$z +2;
+//
+$x *= $y;
+//
+$x = $x % 5;
+//
+$x *=5;
+//
+//$y = $y + (3*3+2);
+//
+//if($x < 30){
+//    $x +=10;
+//}elseif($x < 40){
+//    $x +=15;
+//}else{
+//    $x +=2;
+//}
+//
+//$z = ($z %10 ) + ($x -7 );
+
+echo  '$x = '.$x .'<br>';
+echo  '$y = '.$y .'<br>';
+echo  '$z = '.$z .'<br>';
+
+?>
 
 <!--footer-->
 <?= Render('padrao/footer.php'); ?>

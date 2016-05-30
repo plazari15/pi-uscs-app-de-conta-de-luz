@@ -78,12 +78,12 @@
                 <!-- DADOS GERAIS DO FORM PERTINENTE A TODOS -->
                 <div class="col s3" style="margin-top: 5%">
                     <div class="switch" >
-                        Compartilhar resultados:
+                        Compartilhar resultados:<i class="fa fa-info-circle tooltipped"  data-position="right" data-delay="50" data-tooltip="Ao compartilhar os dados você esta nos ajudando a aumentar a informação sobre o consumo de energia. Isso não garante sua participação em nosso ranking da economia, para isso Clique em Meu Painel > Meu Ranking e escolha a conta que deseja enviar." aria-hidden="true"></i><br>
                         <label>
-                            Off
+                            Não
                             <input type="checkbox" name="ShareData" value="1">
                             <span class="lever"></span>
-                            On
+                            Sim
                         </label>
                     </div>
                 </div>

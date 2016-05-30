@@ -35,6 +35,10 @@ $App->get('/calculadora', function () {
     Render('calculadora.php');
 });
 
+$App->get('/resultado', function () {
+    Render('resultado.php');
+});
+
 $App->get('/graficos', function () {
     Render('graficos.php');
 });

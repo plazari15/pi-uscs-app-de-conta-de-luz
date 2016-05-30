@@ -27,6 +27,10 @@ Render('padrao/header.php');
         para recompensar o consumidor conciente de energia elétrica. Ou seja a cada medição inserida em nosso site, faremos a média mensal,
         sua média mensal será exibida junto com os outros usuários, ao fim do mês, você que ficar entre os três primeiros lugares receberá
         um prêmio.</p>
+    <p>Você pode participar do nosso ranking e ganhar muitos prêmios, para isso, basta <a href="<?= HOME ?>/cadastro">cadastrar-se</a> em nosso
+    site e enviar suas contas de luz usando nossa <a href="<?= HOME ?>/calculadora">Calculadora</a>. Após o envio do Cálculo, vá em seu painel
+    de controle na página <b>Meu Ranking</b> e selecione a conta de luz que deseja enviar. Você pode enviar apenas uma vez e não
+    pode alterar após o envio.</p>
 </div>
 
 <div class="container">
@@ -54,7 +58,7 @@ Render('padrao/header.php');
             $i++;
             ?>
             <tr>
-                <td><?= $i ?></td>
+                <td><?= $i ?>º</td>
                 <td><?= $Read->GetResult()[0]['nome'] ?></td>
                 <td><?= $Read->GetResult()[0]['sobrenome'] ?></td>
                 <td><?= $kwh ?></td>
