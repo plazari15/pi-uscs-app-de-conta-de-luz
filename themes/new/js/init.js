@@ -244,17 +244,17 @@
         return false;
     });
 
-    // $( document ).ready(function () {
-    //     var ID = $(this).data('id');
-    //         $.ajax({
-    //             url: 'https://api.instagram.com/v1/tags/PiUscs/media/recent?access_token=250273905.5b9e1e6.5c7e5443ea484ed0ba78cb2288d3fc8c',
-    //             dataType: 'jsonp',
-    //             type: 'GET',
-    //             success: function (RESPOSTA) {
-    //                 console.log(RESPOSTA);
-    //             }
-    //         });
-    //     return false;
-    // });
+    $( document ).ready(function () {
+        var ID = $(this).data('id');
+            $.ajax({
+                url: 'https://api.instagram.com/v1/tags/PiUscs/media/recent?access_token=250273905.5b9e1e6.5c7e5443ea484ed0ba78cb2288d3fc8c',
+                dataType: 'jsonp',
+                type: 'GET',
+                success: function (RESPOSTA) {
+                    console.log(RESPOSTA);
+                }
+            });
+        return false;
+    });
 
 })(jQuery); // end of jQuery name space

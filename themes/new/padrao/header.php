@@ -11,7 +11,7 @@
             <?php
                 if(isset($_SESSION['userlogin'])){
                     ?>
-                    <a class='waves-effect waves-light btn btn_login dropdown-button btn' href='<?= HOME ?>/dashboard' data-activates='dropdown1'>Meu Painel</a>
+                    <a class='waves-effect waves-light btn btn_login dropdown-button btn' href='#' data-activates='dropdown1'>Meu Painel</a>
                <?php  }else{
                     ?>
                     <a class='waves-effect waves-light btn btn_login btn' href='<?= HOME ?>/dashboard/login'>Login!</a>
@@ -39,7 +39,7 @@
             <?php
             if(isset($_SESSION['userlogin'])){
                 ?>
-                <a class='waves-effect waves-light btn btn_login dropdown-button btn' href='<?= HOME ?>/dashboard' data-activates='dropdown1'>Meu Painel</a>
+                <a class='waves-effect waves-light btn btn_login dropdown-button btn' href='#' data-activates='dropdown2'>Meu Painel</a>
             <?php  }else{
                 ?>
                 <a class='waves-effect waves-light btn btn_login btn' href='<?= HOME ?>/dashboard/login'>Login!</a>
@@ -48,5 +48,15 @@
             ?>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons" style="color: #42A981;">menu</i></a>
+
+        <ul id='dropdown2' class='dropdown-content'>
+            <li><a href="<?= HOME ?>/dashboard">Dashboard</a></li>
+            <li><a href="<?= HOME ?>/dashboard/conta">Minha Conta</a></li>
+            <li><a href="<?= HOME ?>/dashboard/token">Meu Token</a></li>
+            <li><a href="<?= HOME ?>/dashboard/calculos">Meus Calculos</a></li>
+            <li><a href="<?= HOME ?>/dashboard/ranking">Meu Ranking</a></li>
+            <li class="divider"></li>
+            <li><a href="<?= HOME ?>/dashboard/sair"">Sair</a></li>
+        </ul>
     </div>
 </nav>

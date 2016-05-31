@@ -29,7 +29,7 @@ class CalculoMedioUsuario
         $this->Ano = $Ano;
         $Soma = 0;
         $Read = new Read();
-        $Read->ExeRead('calculos', "WHERE mes = :mes AND ano = :ano AND user_id = :user", "mes={$this->Mes}&ano={$this->Ano}&user={$user}");
+        $Read->ExeRead('calculos', "WHERE mes = :mes AND ano = :ano AND user_id = :user AND status = 1", "mes={$this->Mes}&ano={$this->Ano}&user={$user}");
         $this->Contas = $Read->GetRowCount();
         if($Read->GetResult()){
             foreach ($Read->GetResult() as $Result) {
