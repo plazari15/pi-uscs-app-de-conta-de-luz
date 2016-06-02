@@ -28,9 +28,6 @@ function GetNomeBandeira($Code){
 
 $Arr = array();
 for($i=0; $i < count($Post['ano']); $i++){
-    if($Post['ano'][$i] OR $Post['kwh'][$i] OR $Post['mes'][$i]){
-        header('HTTP/1.1 301 Você deixou campos em branco.');
-    }
     $Arr[] = array(
         'consumo' => $Post['kwh'][$i],
         'ano'    => $Post['ano'][$i],

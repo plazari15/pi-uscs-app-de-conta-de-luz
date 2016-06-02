@@ -41,10 +41,10 @@ function GetNomeBandeira($Code){
     $IP = hash(Cript, $_SERVER['REMOTE_ADDR'] );
     $Read = new \Conn\Read();
     $Read->ExeRead('calculos', "WHERE id = :id AND user_ip = :ip", "id={$_GET['id']}&ip={$IP}");
-    if(!$Read->GetResult()){
+    if(!$Read->GetResult()):
         ?>
         <div class="container" id="primeiro">
-            <h2 class="como_funciona">Resultado de seu Calculo</h2>
+            <h2 class="como_funciona">Opsss... :(</h2>
 
             <div class="row">
                 <div class="col s12 quem_somos_text ">
@@ -56,7 +56,7 @@ function GetNomeBandeira($Code){
             </div>
         </div>
     <?php
-    }
+    else:
 ?>
 <div class="container" id="primeiro">
     <h2 class="como_funciona">Resultado de seu Calculo</h2>
@@ -90,7 +90,6 @@ function GetNomeBandeira($Code){
                     <th data-field="price">Menor Valor Histórico</th>
                     <th data-field="price">Maior Valor Histórico</th>
                 <?php endif; ?>
-                <th data-field="price">Compartilhar Resultado?</th>
             </tr>
             </thead>
 
@@ -104,16 +103,18 @@ function GetNomeBandeira($Code){
                 <?php if( isset($_SESSION['userlogin']) ): ?>
                     <th data-field="price"><?= $MenorValor->GetResult()[0]['kwh'] ?> kWh em  <?= date('d/m/Y', strtotime($MenorValor->GetResult()[0]['data'])) ?></th>
                     <th data-field="price"><?= $MaiorValor->GetResult()[0]['kwh'] ?> kWh em  <?= date('d/m/Y', strtotime($MaiorValor->GetResult()[0]['data'])) ?></th>
-                <?php endif; ?>
-                <td><?= ($Read->GetResult()[0]['compartilhar'] == 0 ? 'Não compartilhou resultado' : 'Compartilhou resultados com a EcoLight') ?></td>
-            </tr>
+                <?php endif; ?></tr>
             </tbody>
         </table>
 
 
 </div>
-    </div>
-
+<!--    <div class="divider"></div>-->
+<!--    <p>Agora que você já sabe o quanto economizou, poste uma foto em seu instagram com a <b>#EuEconomizoUSCS</b> e mostre o quão feliz-->
+<!--    você esta com esta economia :)</p>-->
+<!--    </div>-->
+    <!-- Aqui ia o insta*/ -->
+<?php endif; ?>
 <!--footer-->
     <?= Render('padrao/footer.php'); ?>
 <!-- footer-->

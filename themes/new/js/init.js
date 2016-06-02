@@ -247,11 +247,15 @@
     $( document ).ready(function () {
         var ID = $(this).data('id');
             $.ajax({
-                url: 'https://api.instagram.com/v1/tags/PiUscs/media/recent?access_token=250273905.5b9e1e6.5c7e5443ea484ed0ba78cb2288d3fc8c',
+                //EuEconomizoUSCS
+                url: 'https://api.instagram.com/v1/tags/EuEconomizoUSCS/media/recent?access_token=250273905.1677ed0.16b470229ebb4ef4a287c417ffa4e1c1',
                 dataType: 'jsonp',
                 type: 'GET',
                 success: function (RESPOSTA) {
-                    console.log(RESPOSTA);
+                    for(var i=0; i<8; i++){
+                        console.log(RESPOSTA.data[i].images.thumbnail);
+                        $('#Instagram').append("<li><a href='"+RESPOSTA.data[i].link+"' target='_blank'><img src='"+RESPOSTA.data[i].images.thumbnail.url+"'></a>");
+                    }
                 }
             });
         return false;

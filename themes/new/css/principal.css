@@ -71,3 +71,32 @@
 .btn_blue{
     background-color: #3042A5!important;
 }
+
+/*PARA INSTAGRAM*/
+.insta{
+    background-color: #555555;
+    padding: 20px;
+    text-align: center;
+}
+.insta h1{
+    font-size: 1.5em;
+    text-align: left;
+    color: #fff;
+    font-weight: bold;
+}
+.insta span{
+    color: #2DD495;
+}
+.insta h3{
+    font-size: 1em;
+    text-align: left;
+}
+.insta ul{
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+.insta ul li{
+    display: inline;
+    padding-left: 4px;
+}

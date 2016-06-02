@@ -58,40 +58,9 @@ Render('padrao/header.php'); ?>
                 a cuidar de tudo!</div>
             </div>
         </div>
-
     </div>
+<!-- Aqui ia o insta*/ -->
 
-<?php
-$x = 6;
-$y = 4;
-$z = $x + $y;
-
-$z = $y-- + ($z +2);
-$y = ++$z +2;
-//
-$x *= $y;
-//
-$x = $x % 5;
-//
-$x *=5;
-//
-//$y = $y + (3*3+2);
-//
-//if($x < 30){
-//    $x +=10;
-//}elseif($x < 40){
-//    $x +=15;
-//}else{
-//    $x +=2;
-//}
-//
-//$z = ($z %10 ) + ($x -7 );
-
-echo  '$x = '.$x .'<br>';
-echo  '$y = '.$y .'<br>';
-echo  '$z = '.$z .'<br>';
-
-?>
 
 <!--footer-->
 <?= Render('padrao/footer.php'); ?>
