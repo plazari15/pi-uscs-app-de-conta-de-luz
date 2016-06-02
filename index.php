@@ -43,6 +43,14 @@ $App->get('/graficos', function () {
     Render('graficos.php');
 });
 
+$App->get('/medir/calculadora', function () {
+    Render('medir-calculadora.php');
+});
+
+$App->get('/medir/sobre', function () {
+    Render('graficos.php');
+});
+
 $App->get('/ranking', function () {
     Render('Ranking.php');
 });

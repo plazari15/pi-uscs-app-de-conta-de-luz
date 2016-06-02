@@ -49,7 +49,13 @@ if(!$Login->CheckLogin()){
                     <input id="last_name" name="telefone" type="text" class="validate" value="<?= $Read->GetResult()[0]['telefone'] ?>">
                     <label for="last_name">Telefone</label>
                 </div>
+                <div class="input-field col s6">
+                    <input id="last_name" name="valor_medidor" type="number" class="validate" value="<?= $Read->GetResult()[0]['valor_medidor'] ?>">
+                    <label for="last_name">Valor em seu medidor</label>
+                </div>
             </div>
+
+
             <div class="row">
                 <div class="input-field col s12">
                     <input id="email" type="email"  name="email" class="validate" value="<?= $Read->GetResult()[0]['email'] ?>">

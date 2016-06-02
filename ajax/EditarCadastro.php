@@ -7,6 +7,7 @@ $Array = array(
     'sobrenome' => $Post['sobrenome'],
     'telefone' => $Post['telefone'],
     'email' => $Post['email'],
+    'valor_medidor' => $Post['valor_medidor'],
     'imprensa' => $Post['imprensa'],
     'receber_email' => $Post['receber_email'],
 );
@@ -19,6 +20,7 @@ if($Update->GetResult()){
     $_SESSION['userlogin']['sobrenome'] = $Post['sobrenome'];
     $_SESSION['userlogin']['telefone'] = $Post['telefone'];
     $_SESSION['userlogin']['email'] = $Post['email'];
+    $_SESSION['userlogin']['valor_medidor'] = $Post['valor_medidor'];
     $_SESSION['userlogin']['imprensa'] = $Post['imprensa'];
     $_SESSION['userlogin']['receber_email'] = $Post['receber_email'];
 

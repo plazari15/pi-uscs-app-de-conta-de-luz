@@ -1,6 +1,6 @@
 (function($){
   function URL(url){
-      return 'http://pedro-test.com/ajax/'+url;
+      return 'http://pi-uscs.app/ajax/'+url;
   }
 
   $(function(){
@@ -91,6 +91,29 @@
                 //     // $('#result').append("<p>O Resultado do cálculo referente ao mês <b>"+value.mes+"</b> é de <b>R$"+value.valor+".</b> A Bandeira vigente neste mês é "+bandeira+'</p>');
                 //     //$('#result').html("O Resultado do cálculo referente ao mês "+RESPOSTA.mes+" é de "+RESPOSTA.valor+". A Bandeira vigente neste mês é "+bandeira);
                 // })
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                if(xhr.status == 301){
+                    Materialize.toast(thrownError, 4000);
+                }
+
+            }
+        })
+        return false;
+    });
+
+    $('#medir_calculadora').submit(function () {
+        var Data = $('#medir_calculadora').serialize();
+        $.ajax({
+            url: URL('MedirCalculadora.php'),
+            data: Data,
+            type: 'post',
+            dataType: 'json',
+            beforeSend: function () {
+                Materialize.toast('Calculando consumo...', 4000);
+            },
+            success: function ( RESPOSTA ) {
+                console.log(RESPOSTA)
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 if(xhr.status == 301){
