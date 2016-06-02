@@ -100,3 +100,10 @@
     display: inline;
     padding-left: 4px;
 }
+
+.medir_calculadora{
+    background-color: #8DC63F;
+    min-height: 30px;
+    padding: 30px!important;
+    margin: 10px!important;
+}

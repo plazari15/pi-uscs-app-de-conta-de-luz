@@ -113,8 +113,15 @@
                 Materialize.toast('Calculando consumo...', 4000);
             },
             success: function ( RESPOSTA ) {
-                console.log(RESPOSTA)
-            },
+                Materialize.toast(RESPOSTA.text, 4000, RESPOSTA.class);
+                if(RESPOSTA.code){
+                    $('#valor_medidor').val(RESPOSTA.new);
+                    $('#valor_medidor_hoje').val('');
+                    $('#medir_calculadora').fadeOut();
+                    $('.medir_calculadora').replaceWith('<div id="divRes" class="col s6 offset-m3 medir_calculadora">O seu consumo até o presente momento de sua leitura é <b>'+RESPOSTA.kwh+'</b> kWh</div>')
+                    $('.medir_calculadora').fadeIn();
+                }
+               },
             error: function (xhr, ajaxOptions, thrownError) {
                 if(xhr.status == 301){
                     Materialize.toast(thrownError, 4000);

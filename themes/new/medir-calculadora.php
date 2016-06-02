@@ -46,12 +46,12 @@
 
                 <div id="Kwh" class="col s11 m6" name="kwh">
                     <label>Valor no seu medidor</label>
-                    <input type="text" name="valor_medidor" value="<?= $Valor_Medidor ?>">
+                    <input type="text" name="valor_medidor" id="valor_medidor" value="<?= $Valor_Medidor ?>">
                 </div>
 
                 <div id="Kwh" class="col s11 m6" name="kwh">
                     <label>Valor no seu medidor hoje</label>
-                    <input type="text" name="valor_medidor_hoje" placeholder="Valor em seu medidor hoje">
+                    <input type="text" name="valor_medidor_hoje" id="valor_medidor_hoje" placeholder="Valor em seu medidor hoje">
                 </div>
 
                 <div class="col s12">
@@ -63,8 +63,11 @@
                 </div>
                 <?php endif; ?>
 
+                
+
 
             </form><!-- FORM TOTAL -->
+            <div id="resultado" class="col s6 offset-m3 medir_calculadora" style="display: none;"></div>
 
         </div><!-- COL S12 -->
 
