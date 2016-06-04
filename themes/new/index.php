@@ -23,6 +23,13 @@
 <div class="slider">
     <ul class="slides">
         <li>
+            <img src="<?= INCLUDE_PATH ?>/images/facebook-messenger.jpg">
+            <div class="caption center-align shadow-slider">
+                <h3>Resolva seus problemas pelo Facebook Messenger</h3>
+                <h5 class="light grey-text text-lighten-3 ali">Nosso sistema também está disponível no seu Facebook Messenger!<br>Tire uma foto do código ao lado!</h5>
+            </div>
+        </li>
+        <li>
             <img src="<?= INCLUDE_PATH ?>/images/lampadas.jpg">
             <div class="caption center-align shadow-slider">
                 <h3>Calcule a sua conta de luz!</h3>

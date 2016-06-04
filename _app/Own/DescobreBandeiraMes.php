@@ -16,6 +16,7 @@ class DescobreBandeiraMes
     protected $Mes;
     protected $NumMes;
     public $Ret;
+    protected $Cod;
 
     function __construct($Mes)
     {
@@ -28,63 +29,91 @@ class DescobreBandeiraMes
         return $this->Ret;
     }
 
+    public function GetCode(){
+        return $this->Cod;
+    }
+
     protected function TransformMes(){
         switch ($this->Mes){
 
-            case 'Janeiro' || 'janeiro':
+            case 'Janeiro':
+            case 'janeiro':
+            case 'January':
                 $this->NumMes = '1';
                 break;
 
-            case 'Fevereiro' || 'fevereiro':
+            case 'Fevereiro':
+            case 'fevereiro':
+            case 'February':
                 $this->NumMes = '2';
                 break;
 
-            case 'Março' || 'março':
+            case 'Março':
+            case 'março':
+            case 'March':
                 $this->NumMes = '3';
                 break;
 
-            case 'Abril' || 'abril':
+            case 'Abril':
+            case 'abril':
+            case 'April':
                 $this->NumMes = '4';
                 break;
 
-            case 'Maio' || 'maio':
+            case 'Maio':
+            case 'maio':
+            case 'May':
                 $this->NumMes = '5';
                 break;
 
-            case 'Junho' || 'junho':
+            case 'Junho':
+            case 'junho':
+            case 'June':
                 $this->NumMes = '6';
                 break;
 
-            case 'Julho' || 'julho':
-                $this->NumMes = 7;
+            case 'Julho':
+            case 'julho':
+            case 'July':
+                $this->NumMes = '7';
                 break;
 
-            case 'Agosto' || 'agosto':
-                $this->NumMes = 8;
+            case 'Agosto':
+            case 'agosto':
+            case 'August':
+                $this->NumMes = '8';
                 break;
 
-            case 'Setembro' ||'setembro':
-                $this->NumMes = 9;
+            case 'Setembro':
+            case 'setembro':
+            case 'September':
+                $this->NumMes = '9';
                 break;
 
-            case 'Outubro' || 'outubro':
-                $this->NumMes = 10;
+            case 'Outubro':
+            case 'outubro':
+            case 'October':
+                $this->NumMes = '10';
                 break;
 
-            case 'Novembro' || 'novembro':
-                $this->NumMes = 11;
+            case 'Novembro':
+            case 'novembro':
+            case 'November':
+                $this->NumMes = '11';
                 break;
 
-            case 'Dezembro' || 'dezembro':
-                $this->NumMes = 12;
+            case 'Dezembro':
+            case 'dezembro':
+            case 'December':
+                $this->NumMes = '12';
                 break;
         }
     }
     
     protected function GetBandeira(){
         $Read = new Read();
-        $Read->ExeRead('bandeiras', 'WHERE year = :year AND nome_mes = :mes', "year=2016&mes={$this->Mes}");
-
+        $Read->ExeRead('bandeiras', 'WHERE year = :year AND mes = :mes', "year=2016&mes={$this->NumMes}");
+        $this->Cod = $Read->GetResult()[0]['cod_bandeira'];
         if($Read->GetResult()){
             switch ($Read->GetResult()[0]['cod_bandeira']){
                 case '1':
