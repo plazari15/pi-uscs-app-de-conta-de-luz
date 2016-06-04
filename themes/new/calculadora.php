@@ -66,7 +66,7 @@
 
                     <div id="Kwh" class="col s11 m3" name="kwh[]">
                         <label>kWh Consumidos.</label>
-                        <input type="number" disabled name="kwh[]"  class="KwhConsumido" placeholder="Insira os kWh"/>
+                        <input type="number" disabled name="kwh[]"  class="KwhConsumido" placeholder="Insira os kWh" value="<?= isset($_GET['kwh']) ? $_GET['kwh'] : '' ?>"/>
                     </div>
 
                 </div><!-- FIM DO BLOCO CLONADOR -->

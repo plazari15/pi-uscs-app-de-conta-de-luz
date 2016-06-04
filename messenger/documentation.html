@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<head lang="en">
+	<meta charset="utf-8">
+	<title>Facebook Messenger Bots for PHP Documentation</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+
+	<style type="text/css">
+	body {font: 16px "Source Sans Pro", "Arial", sans-serif}
+	strong {font-weight: bold}
+	h1, h2, h3,h4,h5 {font: 48px "Source Sans Pro", "Arial", sans-serif; padding-bottom: 0.5em;}
+
+	h1{
+		margin: 30px 0;
+	}
+	h2 {font-size: 40px}
+	h3 {font-size: 34px}
+	h4 {font-size: 26px}
+	h5 {font-size: 22px; font-weight: normal}
+	h6{ font-size: 18px; }
+	ul li{
+		margin: 10px 0;
+	}
+	p {margin-bottom: 1em; line-height: 1.5em; text-align: justify}
+	ul {list-style: disc; padding-left: 20px; margin: 1em 0}
+	ol {list-style: decimal; padding-left: 20px}
+	code { color: #52bb5d;}
+
+	.container {width: 960px; margin: 30px auto}
+	header, section, footer {display: block}
+	
+	img{
+		display: block;
+		clear: both;
+		margin: 20px auto;
+	}
+	a{
+		color: #f4645f;
+	}
+	header h1 {text-align: center}
+	
+	nav ul {overflow: hidden; margin-bottom: 20px; padding-left: 0}
+	nav li {list-style: none; float: left; border-left: 1px solid #ccc; padding: 0 10px}
+	nav li:first-child {border-left: none; padding-left: 0}
+
+	#info strong {width: 120px; display: inline-block}
+	.center{ text-align: center;}
+	footer {margin: 15px auto; color: #999; font-size: 11px}
+	hr{
+		border-top: 1px solid #eee;
+		border-bottom: none;
+	}
+    </style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h1 class="center">Facebook Messenger Bots for PHP Documentation</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Version: 3.0<br>
+					By: Binaty<br>
+					Email: <a href="mailto:hello@binaty.org">hello@binaty.org</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing our library. If you have any questions that are beyond the scope of this help file, please feel free to email via contact form <a href="http://codecanyon/user/binaty">here</a>. <br>
+				Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol>
+			<li><a href="#update-guide">Upgrade Guide</a></li>
+			<li><a href="#installation">Installation</a></li>
+			<li><a href="#setup-facebook">Setup Facebook Page &amp; App</a></li>
+			<li><a href="#design-a-bot">Defining a Bot</a></li>
+			<li><a href="#message-types">Message types</a></li>
+            <li><a href="#class-references">Class references</a></li>
+			<li><a href="#change-logs">Change Logs</a></li>
+		</ol>
+		
+		<hr>
+		<h3 id="update-guide">1. Upgrade Guide</h3>
+
+		<blockquote>We attempt to provide a very comprehensive listing of every possible breaking change made to the libary. However, many of these changes may not apply to your own application.</blockquote>
+
+		<h4 id="1-to-2">Upgrade to 2.0 from 1.x</h4>
+
+		<ul>
+			<li>Remove your whole libary files and replace with new <code>2.x</code> files.</li>
+			<li>Replace <code>MessengerBot</code> class with <code>FacebookMessengerBot.</code></li>
+			<li>Go to <code>core/config.php</code> then enter your App's PAGE ACCESS TOKEN, PAGE ID to PAGE_ACCESS_TOKEN and PAGE_ID constants.</li>
+			<li>If you use <code>BOT_DIR</code> constant, replace it with new <code>FMB_ABS_PATH</code> constant.</li>
+		</ul>
+		
+		<hr>
+
+		<h3 id="installation">2. Installation - <a href="#toc">top</a></h3>
+        
+        <p>It's recommended that you read <a href="https://developers.facebook.com/docs/messenger-platform/product-overview">Messenger Platform's Overview</a> before continue reading this documentation.</p>
+
+        <h4>2.1 Server Requirements</h4>
+		<p>
+            Facebook Messenger Bots has tested and compatibility with
+            <ul>
+                <li>PHP 5.2+</li>
+                <li><code>cURL</code> should enabled</li>
+                <li>Your site (or webhook) should <code>https</code></li>
+            </ul>
+           
+        </p>
+		
+		<h4>2.2 Installation</h4>
+		
+		<ol>
+            <li>Download <code>facebook-messenger-bots.zip</code> and unzip the package.</li>
+            <li>Copy or Upload <code>facebook-messenger-bots</code> folder to your desired directory. Should allows user access via <code>https</code></li>
+            <li>Start design the bot directly in <code>index.php</code> or <code>examples/example.php</code></li>
+        </ol>
+
+		<h5>Local Development Environment</h5>
+		<p>If you wanna test your bot on your existing local server before deploying but don't have SSL certificate. The easiest method is install a secure tunnel <code>ngrok</code>.</p>
+		
+		<ol>
+			<li>Download <a href="https://ngrok.com/download">ngrok</a>. Available on all OS.</li>
+			<li>Open ngrok, run <code>ngrok http 80</code> to make an alias of http server.</li>
+			<li>Done. You'll get a random https domain (for example: <a href="https://2a3ffc77.ngrok.io/">https://2a3ffc77.ngrok.io/</a>) pointing to your <a href="http://localhost">http://localhost</a>. Copy it to your browser and enjoy.</li>
+		</ol>
+
+		<hr>
+
+		<h3 id="setup-facebook">3. Setup Facebook Page &amp; App - <a href="#toc">top</a></h3>
+        
+        <h4>3.1 Register <a href="https://business.facebook.com/">Facebook Business Program</a></h4>
+
+        <h4>3.2 Create Facebook App &amp; Page</h4>
+		<p>Create a new <a href="https://developers.facebook.com/quickstarts/?platform=web">Facebook App</a> and <a href="https://www.facebook.com/pages/create">Page</a> or use existing ones. Your Facebook App can remain in sandbox mode and your Page does NOT have to be publicly visibile. The Page profile pic and name will be used to form the "identity" of your bot and is what people will see when they engage it.</p>	
+		
+		<h4>3.3 Setup Webhook</h4>
+		<ul>
+			<li>
+				In your Facebook App. Navigate to Webhooks menu item, click New Subscription, then choose Page. A dialog will shows up
+				
+				<img src="https://facebookmessengerbots.com/images/new-page-subscription.jpg" alt="New Page Subscription" />
+				
+				<ul>
+					<li>In "Callback URL", enter your webhook: <code>https://yourwebsite.com/messenger</code> replace <code>yourwebsite.com/messenger</code> with your webhook.</li>
+					<li>In "Verify Token", enter <code>FacebookMessengerBots</code></li>
+					<li>In "Subscription Field", check <code>message_deliveries</code>, <code>messages</code>, <code>messaging_optins</code>, and <code>messaging_postbacks</code></li>
+					<li>Click "Verify and Save"</li>
+				</ul>
+			</li>
+		</ul>
+		<p class="description">If these above step success, you'll see this, and the verify checkbox in Facebook Messenger Bots settings is unchecked</p>
+			<img src="https://facebookmessengerbots.com/images/webhook.jpg" alt="Webhook Success">
+
+		<h4>3.4 Setup Messenger</h4>
+		<p>The next step in this part is make a connection between Website <=> Facebook App <=> Page, so all messages come from page pass through app to website and vice versa</p>
+
+		<ul>
+			<li>In your Facebook App. Navigate Messenger, below Webhooks item.</li>
+			<li>In <code>Token Generation</code> section, select a your page, you'll need to confirm permission for that page. After that step, you'll got Page Access Token.
+				<img src="https://facebookmessengerbots.com/images/token-generation.jpg" alt="Page Access Token">
+			</li>
+			<li>Click to copy that token, open <code>core/config.php</code> and replace <code>{YOUR_PAGE_ACCESS_TOKEN}</code> with your copied token.</li>
+			<li><em>(Optional)</em> Go to your FB page, jump to About tab, copy Facebook Page ID and replace <code>{YOUR_PAGE_ID} with your page id.</code>
+				<img src="https://facebookmessengerbots.com/images/facebook-page-id.jpg" alt="Page ID">
+			</li>
+			<li>Click Save Changes</li>
+
+			<li>Now, visit your webhook at <code>https://yourwebsite.com/webhook/subscribe.php</code>. If you see this screen, congratulation. Your bot is ready!
+			<img src="https://facebookmessengerbots.com/images/subscribe-200.jpg" alt="Subscribe Success">
+
+			Please remember that you can visit this subscribe URL anytime to check connection status.
+			</li>
+		</ul>
+
+		<hr>
+		<h3 id="design-a-bot">4. Defining a Bot <a href="#toc">top</a></h3>
+        
+        <h4>4.1 Messenger Greeting</h4>
+        <p>Your greeting is what people will see the first time they open a conversation with you on Messenger. The greeting helps people understand how to interact with you.</p>
+		
+		<p>Go to Page Settings > Messaging tab. You can see many message settings here. Notice that you can customize Messenger Greeting section.</p>
+		
+		<img src="https://facebookmessengerbots.com/images/messaging.jpg" alt="Subscribe Success">
+
+		<p class="description">If you have set it but can't see Messenger Greeting, don't worry. That's a <a href="https://developers.facebook.com/bugs/1728242210729502/?pnref=story">Facebook's bug</a> and they'll fix it soon.</p>
+		
+		<h4>4.2 Creating a Bot</h4>
+		<blockquote>The easiest way to create a bot is edit <code>example.php</code> file. Of course, you can define bot in any file which you want. For example: <code>index.php</code></blockquote>
+		
+		<h5 id="create-a-bot-instance">Create a Bot instance</h5>
+		
+		The first step to create a bot is creating a bot instance. Just make a new instance of <code>FacebookMessengerBot</code>. This accepts 1 parameter which we'll let you know on the next part.
+		<pre class="php">
+			<code>
+				$bot = new FacebookMessengerBot($answers);
+			</code>
+		</pre>
+		
+		<h5>Bot answers</h5>
+		<p>Bot answers when users send a text, click on a button, or when users click "Get Started" bot answers with a welcome message. <br>
+			To define bot answers. Just use <code>$bot->answers();</code> method. This accepts 1 or two params. Let's start with some example. 
+		</p>
+
+		<strong>Answer a Text Message</strong>
+<pre class="php">
+<code>
+// Answer `what does the fox says?` question with a text message.
+$bot->answers( 'what does the fox says?', 'Ding ding ding ding ding ding!' );
+</code>
+</pre>
+
+		<strong>You can add up to 3 messages per answer by passing an array</strong>
+
+<pre class="php"><code>
+// Answer `Who are you?` question with 3 text message
+$bot->answers( 'Who are you?', [
+	'Guess what?',
+	'I am the good cook'
+	'I am the one who knocks'
+] );
+</code></pre>
+
+		<strong>You can also add <code>buttons</code> <code>generic template</code> or <code>receipt</code> to your message. A message can contains up to 3 of these items</strong>
+
+<pre class="php"><code>
+// Answer `Who are you?` question with a text message and buttons.
+$bot->answers( 'Who are you?', [
+	'Guess what?',
+
+	// To add buttons. Simply use `button` key. 
+	'button' => [
+		// Button CTA title
+		'text' => 'I am the one of those guys',
+		
+		// Buttons array. Can contains up to 3 items.
+		'buttons' => [
+
+			// Button can be a web url
+			[
+				'type' => 'web_url',
+				'url' => 'http://breakingbad.com',
+				'title' => 'Jesse Pinkman'
+			],
+
+			// Or a postback payload
+			[
+				'type' => 'postback',
+				'payload' => 'UserClickedButton',
+				'title' => 'Heisenberg'
+			]
+		]
+	]
+] );
+</code></pre>
+
+		<strong>Multiple questions - answers</strong>
+<pre class="php"><code>
+// Multiple questions - answers can be defined in an array with key is the question and the value as the answer with the same syntax with the above examples.
+$bot->answers([
+	// Bot says: `Ding ding ding ding ding ding!` when user ask "What does the fox says"
+	'What does the fox says?' => 'Ding ding ding ding ding ding!',
+	
+	// Bot says. `Guess what?` and send two buttons when user ask `Who are you?`
+	'Who are you?' => [
+		'text' 		=> 'Guess what?',
+		'buttons' 	=> [
+			[
+				'type' => 'web_url',
+				'url' => 'http://breakingbad.com',
+				'title' => 'Jesse Pinkman'
+			],
+			[
+				'type' => 'postback',
+				'payload' => 'UserClickedHeisenbergButton',
+				'title' => 'Heisenberg'
+			]
+		]
+	]
+]);
+</code></pre>
+<p>Back to the <a href="#create-a-bot-instance">Create a bot instance</a> section. You can put multiple questions - answers to the class constructor's arguments</p>
+
+
+		<strong>Answer by the function</strong>
+		<p>Answer by custom context, this may increase bots performance. The bot uses FacebookMessengerResponse class to response custom answers to user.</p>
+<pre class="php">
+<code>
+//Bots say your name if you ask "Say my name". If they can't get it, they will return a cat picture and a message.
+$bot->answers('Say my name', function ($answer) {
+/** @var $answer FacebookMessageResponse */
+$myinfo = $answer->getFacebookMessageReceived()->getUserInfo();
+	if (!empty($myinfo->error)) {
+		$answer->response('image:https://s-media-cache-ak0.pinimg.com/736x/f0/26/05/f0260599e1251c67eefca31c02a19a81.jpg');
+		$answer->response('You need page_messaging permission to get user information');
+		return;
+	}
+	$answer->response('Your name is: ' . $myinfo->first_name . ' ' . $myinfo->last_name);
+});
+
+//Or you can use function name to answer question
+function bot_response($answer) {
+	/* define answers here */
+}
+
+$bot->answer('Say my name', 'function:bot_response');
+
+//Or use classical template
+$bot->answer('Say my name', array(
+	'type' => 'function',
+	'content' => 'bot_response'
+));
+</code>
+</pre>
+
+		<strong>Answer questions by their template</strong>
+		<p>Answer questions when people ask a question start with a string, or end with a string, or centered by a string, or more complex</p>
+<pre class="php"><code>
+//Answer question when people ask something starts with "My name"
+$bot->answer('My name%', 'My name is NO, my sign is NO, my number is NO...');
+
+//Answer question when people ask something ends with "Facebook Messenger Bots",
+$bot->answer('%Facebook Messenger Bots', 'Did you say my name?');
+
+//Or answer question when people ask something has string "Hodor"
+$bot->answer('%Hodor%', 'Hold the door');
+
+//Or use regular expression if you want to process more complex question
+
+//The bot will Hail you when you say "I am ..."
+$bot->answers('regex:/I am .*/i', function($answer){
+    $received = $answer->getFacebookMessageReceived()->getText();
+    $answer->response('Hail ' . substr($received, 5));
+});
+</code></pre>
+
+		<strong>Answer payload postback</strong>
+		<p>Back to the previous example. You have created a postback button. And you want to send a message to users when they clicked to <code>UserClickedHeisenbergButton</code> button. You can define it by using key<code>payload:PAYLOAD_NAME</code> syntax. Like so:</p>
+<pre class="php"><code>
+// Bot says `You got damned right!` when users click `Heisenberg` button 
+$bot->answers('payload:UserClickedHeisenbergButton', 'You got damned right!');
+</code></pre>
+
+		<strong>Welcome Message</strong>
+		<p>At the first time when people start a chat with you. There's a `Get Started` button which you can send a custom welcome message. To define it. Just define `welcome:` as the key. Like so:</p>
+
+<pre class="php"><code>
+// Bot says `Thank god, you are here` to welcome a user
+$bot->answers('welcome:', 'Thank god, you are here');
+</code></pre>
+		
+		<p>Of course, you can send any message type which you want</p>
+
+		<div class="alert alert-warning">
+			Note that you have to go to https://yourwebsite.com/yourwebhook?update_welcome
+		</div>
+		
+		<strong>Default Message</strong>
+		<p>Default message trigger when people click on unhandled buttons or sent an unhandled message. For example: people say: <em>'konichiwa toyota honda'</em> and bot don't understand, so you can set default message to response</p>
+
+<pre class="php">
+	<code>
+// Bot answers with default message
+$bot->answers("default:", "Sorry, I don't understand what you mean. Type `help` to continue");
+	</code>
+</pre>
+		
+		<div class="alert alert-info">
+			For more information. See: <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference">Messenger Platform - Send API Reference</a>
+		</div>
+
+
+		<h3 id="message-types"><strong>5. Message types - <a href="#toc">top</a></strong></h3>
+		<strong>Text</strong>
+		<p>There are many ways to define text message.</p>
+<pre class="php"><code>
+//Simplest way
+$bot->answer("John Cena", "We can't see you");
+
+//Classic way
+$bot->answer("John Cena", array(
+	"type" => "text",
+	"content" => "We can't see you"
+));
+</code></pre>
+
+		<strong>Image</strong>
+		<p>There are many ways to define image message by providing image url</p>
+<pre class="php"><code>
+//Simplest way
+$bot->answer("Jon Snow", "image:https://s-media-cache-ak0.pinimg.com/236x/e5/81/ab/e581ab29749b576d3a2fa099e54f0138.jpg");
+
+//Classic way
+$bot->answer("Jon Snow, array(
+	"type" => "image",
+	"content" => "https://s-media-cache-ak0.pinimg.com/236x/e5/81/ab/e581ab29749b576d3a2fa099e54f0138.jpg"
+);
+</code></pre>
+
+		<strong>Button</strong>
+		<p>You can send buttons to users by use this template. You can add maximum <strong>3 buttons</strong> per message</p>
+<pre class="php"><code>
+//When people ask to watch movies, send them some options
+$bot->answer("Watch movies", array(
+	"type" => "button",
+	"content" => array(
+		"text" => "Which TV Series do you like?",
+		"buttons" => array(
+			array(
+				"type" => "web_url",
+				"url" => "http://www.imdb.com/title/tt0944947/",
+				"title" => "Game of Thrones"
+			),
+			array(
+				"type" => "web_url",
+				"url" => "http://www.imdb.com/title/tt0903747/",
+				"title" => "Breaking bad"
+			),
+			array(
+				"type" => "postback",
+				"payload" => "NoneOfThem",
+				"title" => "None of them"
+			)
+		)
+	)
+);
+</code></pre>
+
+		<strong>Generic</strong>
+		<p>You can send a carousel with images, description, web url, buttons by using this template. <br>
+		You can use this template to send to user products, articles,...</p>
+<pre class="php">
+$bot->answer("payload:UserChooseCars",  array(
+    // A generic bubble
+    array(
+        "title" => "Lamborghini",
+        "image_url" => "http://pictures.topspeed.com/IMG/crop/201603/2016-lamborghini-centenar-5_800x0w.jpg",
+        "subtitle" => "Amazing speed",
+        "buttons" => array(
+            array(
+                "type" => "web_url",
+                "url" => "https://lamborghini.com",
+                "title" => "Buy Now"
+            ),
+            array(
+                "type" => "postback",
+                "payload" => "BuyLamborghiniTomorrow",
+                "title" => "Buy Tomorrow"
+            )
+        )
+    ),
+
+    // Another generic bubble
+    array(
+        "title" => "Rolls Royce",
+        "image_url" => "http://static.robbreport.com/sites/default/files/images/articles/2015Sep/1642581//rolls-royce-dawn-02.jpg",
+        "subtitle" => "Most Luxury Car",
+        "buttons" => array(
+            array(
+                "type" => "web_url",
+                "url" => "https://www.rolls-roycemotorcars.com/en-GB/home.html",
+                "title" => "Buy Now"
+            ),
+            array(
+                "type" => "postback",
+                "payload" => "BuyRollsRoyceTomorrow",
+                "title" => "Buy Tomorrow"
+            )
+        )
+    ),
+
+    // Yet another generic bubble
+    array(
+        "title" => "Ferrari",
+        "image_url" => "https://cdn1.vox-cdn.com/thumbor/-pG8Dcb_qtRf6te3ug12FHhqUDs=/1020x0/cdn0.vox-cdn.com/uploads/chorus_asset/file/4156848/Ferrari_F12tdf_3low.0.jpg",
+        "subtitle" => "I like the horse",
+        "buttons" => array(
+            array(
+                "type" => "web_url",
+                "url" => "http://www.ferrari.com/en_en/",
+                "title" => "Buy Now"
+            ),
+            array(
+                "type" => "postback",
+                "payload" => "BuyFerrariTomorrow",
+                "title" => "Buy Tomorrow"
+            )
+        )
+    ),
+);
+</pre>
+
+		<strong>Receipt</strong>
+		<p>You can use this message type to send a receipt to users. <br>
+		The order_number is unique, you only can send receipt once for each order_number.
+		</p>
+<pre class="php"><code>
+//I use time() function to generate different order_number each time bot sends message.
+$bot->answer("payload:UserGetReceipt", array(
+    'type' => 'receipt',
+    'content' => array(
+        "name" => "Stephane Crozatier",
+        "order_number" => time(),
+        "currency" => "USD",
+        "payment_method" => "Visa 2345",
+        "order_url" => "http://petersapparel.parseapp.com/order?order_id=123456",
+        "elements" => [
+            [
+                "title" => "Classic White T-Shirt",
+                "subtitle" => "100% Soft and Luxurious Cotton",
+                "quantity" => 2,
+                "price" => 50,
+                "currency" => "USD",
+                "image_url" => "http://petersapparel.parseapp.com/img/whiteshirt.png"
+            ],
+            [
+                "title" => "Classic Gray T-Shirt",
+                "subtitle" => "100% Soft and Luxurious Cotton",
+                "quantity" => 1,
+                "price" => 25,
+                "currency" => "USD",
+                "image_url" => "http://petersapparel.parseapp.com/img/grayshirt.png"
+            ]
+        ],
+        "address" => [
+            "street_1" => "1 Hacker Way",
+            "street_2" => "",
+            "city" => "Menlo Park",
+            "postal_code" => "94025",
+            "state" => "CA",
+            "country" => "US"
+        ],
+        "summary" => [
+            "subtotal" => 75.00,
+            "shipping_cost" => 4.95,
+            "total_tax" => 6.19,
+            "total_cost" => 56.14
+        ],
+        "adjustments" => [
+            [
+                "name" => "New Customer Discount",
+                "amount" => 20
+            ],
+            [
+                "name" => "$10 Off Coupon",
+                "amount" => 10
+            ]
+        ]
+    )
+);
+</code></pre>
+
+
+        <h3 id="class-references">6. Class references</h3>
+
+        <h4>FacebookMessengerBot</h4>
+        <p>Main class of the library</p>
+
+        <h5><code>$messenger_response</code></h5>
+        <p>FacebookMessengeResponse object. To response messages to users</p>.
+
+        <h5><code>$messenger</code></h5>
+        <p>FacebookMessengerReceive. To get message information</p>
+
+        <h5><code>__construct($args = array())</code></h5>
+        <p>Defining bots with with agruments. See example.php to get example</p>
+
+        <h5><code>get_userid()</code></h5>
+        <p>Return userid from user</p>
+
+        <h5><code>get_time()</code></h5>
+        <p>Return the time that the message is received</p>
+
+        <h5><code>answer($asks, $answers)</code></h5>
+        <p>Define answers for questions. See <a href="#design-a-bot">defining a bot</a></p>
+
+        <h5><code>run()</code></h5>
+        <p>Run bots</p>
+
+        <h4>FacebookMessengeReceive</h4>
+        <p>Get information of received message</p>
+
+        <h5><code>getID()</code></h5>
+        <p>Return message ID. Each message has an unique ID</p>
+
+        <h5><code>getTime()</code></h5>
+        <p>Return the time the message is sent from user</p>
+
+        <h5><code>getSender()</code></h5>
+        <p>Return user id</p>
+
+        <h5><code>getUserInfo($userid = '')</code></h5>
+        <p>All user information is cached to /cache/users.txt for better performance</p>
+        <p>If userid is set, it will return information of the user defined by user id.</p>
+        <p>If not, it will return information of current user.</p>
+        <p>If 'page_messaging' permission is not granted. It will return an object with <code>error</code> property</p>
+        <p>If not, it will return an object contains user information like <code>first_name</code>, <code>last_name</code>, <code>profile_pic</code>, <code>locale</code>, <code>timezone</code>, <code>gender</code></p>
+
+        <h5><code>getText()</code></h5>
+        <p>Return the message if user sends text message, return false if user sends another type of message</p>
+
+        <h5><code>getPayload()</code></h5>
+        <p>Return the payload name if user clicks a button, return false if user sends another type of message</p>
+
+        <h4>FacebookMessageResponse</h4>
+        <p>Response to user with message types</p>
+
+        <h5><code>$received</code></h5>
+        <p>The FacebookMessageReceive object</p>
+
+        <h5><code>getFacebookMessageReceived()</code></h5>
+        <p>Return FacebookMessageReceived object</p>
+
+        <h5><code>$send_to</code></h5>
+        <p>UserID of the user that bot prepares send message to</p>
+
+        <h5><code>sendTo($userid)</code></h5>
+        <p>Select user that bot send messages to</p>
+
+        <h5><code>setNotificationType($type = 'REGULAR')</code></h5>
+        <p>There are 3 types of notification: REGULAR, SILENT_PUSH, NO_PUSH</p>
+
+        <h5><code>updateWelcome($node)</code></h5>
+        <p>Run this method to update welcome message. $node is a message type</p>
+
+        <h5><code>removeWelcome()</code></h5>
+        <p>Remove the welcome message. You can use updateWelcome('') to remove welcome message too</p>
+
+        <h5><code>response($node, $notification_type = '')</code></h5>
+        <p>Response messages to user with the notification type. Default notification type is REGULAR</p>
+
+        <h5><code>normalizeNode($node)</code></h5>
+        <p>Convert node to native Facebook message</p>
+
+		<h3 id="change-logs"><strong>7. Change Logs - <a href="#toc">top</a></strong></h3>
+
+		<strong>Version 3.0 - May 30th, 2016</strong>
+		<ul>
+			<li>Support shorter syntax for defining bots</li>
+			<li>Answer custom question template by using '%' and Regex</li>
+			<li>Support function response type</li>
+			<li>Easier to update and remove welcome messages</li>
+            <li>Support send messages to custom users, this help people can send message to multiple users at once.</li>
+            <li>Support get user information if 'page_messaging' permission is granted</li>
+			<li>Improve documentation</li>
+		</ul>
+
+		<strong>Version 2.0 - May 4th, 2016</strong>
+		<ul>
+			<li>Support shorter syntax for defining bots</li>
+			<li>Support welcome message</li>
+			<li>Use native PHP cURL function instead of cURL library</li>
+			<li>Change class name</li>
+			<li>Remove built-in events, users can set event by using add_action and do_action if they using WordPress</li>
+			<li>Remove all existing warning message</li>
+		</ul>
+
+		<strong>Version 1.0 - April 25th, 2016</strong>
+		<ul>
+			<li>Initial Release</li>
+		</ul>
+
+		<footer>
+            Copyright &copy; 2016 Binaty
+            
+		    <p><a href="#toc">Go To Table of Contents</a></p>
+		</footer>
+		<hr class="space">
+	</div><!-- end div .container -->
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

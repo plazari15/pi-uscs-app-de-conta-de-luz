@@ -1,6 +1,6 @@
 (function($){
   function URL(url){
-      return 'http://pi-uscs.app/ajax/'+url;
+      return 'http://pedro-test.com/ajax/'+url;
   }
 
   $(function(){
@@ -118,7 +118,7 @@
                     $('#valor_medidor').val(RESPOSTA.new);
                     $('#valor_medidor_hoje').val('');
                     $('#medir_calculadora').fadeOut();
-                    $('.medir_calculadora').replaceWith('<div id="divRes" class="col s6 offset-m3 medir_calculadora">O seu consumo até o presente momento de sua leitura é <b>'+RESPOSTA.kwh+'</b> kWh</div>')
+                    $('.medir_calculadora').replaceWith('<div id="divRes" class="col s6 offset-m3 medir_calculadora">O seu consumo até o presente momento de sua leitura é <b>'+RESPOSTA.kwh+'</b> kWh. Clique <a href="/calculadora?kwh='+RESPOSTA.kwh+'">AQUI</a> para efetuar o calculo prévio de sua conta de luz. </div>')
                     $('.medir_calculadora').fadeIn();
                 }
                },

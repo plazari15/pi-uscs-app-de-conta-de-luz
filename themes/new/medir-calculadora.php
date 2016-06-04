@@ -28,6 +28,8 @@
             Você não precisa esperar sua conta de luz chegar para medir a quantidade de Kwh, agora, você pode medir quantos Kwh consumiu
             lendo o seu próprio relógio, sem depender do leiturista da consecionária.<br>
             Para usar este serviço você precisa estar registrado no sistema, pois precisamos ter acesso ao valor de sua medição anterior
+
+<!--            <p><a href="--><?//= HOME ?><!--/medir/sobre">Descubra como ler seu relógio</a></p>-->
         </div>
 
     <?php if (isset($_SESSION['userlogin'])):
@@ -46,7 +48,7 @@
 
                 <div id="Kwh" class="col s11 m6" name="kwh">
                     <label>Valor no seu medidor</label>
-                    <input type="text" name="valor_medidor" id="valor_medidor" value="<?= $Valor_Medidor ?>">
+                    <input type="text" name="valor_medidor" id="valor_medidor" value="<?= $Valor_Medidor ?>" disabled>
                 </div>
 
                 <div id="Kwh" class="col s11 m6" name="kwh">

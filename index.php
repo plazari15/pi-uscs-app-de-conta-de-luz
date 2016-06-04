@@ -48,7 +48,7 @@ $App->get('/medir/calculadora', function () {
 });
 
 $App->get('/medir/sobre', function () {
-    Render('graficos.php');
+    Render('sobre-medir.php');
 });
 
 $App->get('/ranking', function () {
@@ -82,6 +82,10 @@ $App->get('/dashboard/ranking', function () {
 $App->get('/dashboard/sair', function () use($App) {
     unset($_SESSION['userlogin']);
    header('Location: '.HOME.'/dashboard/login');
+});
+
+$App->get('/politica', function () use($App) {
+    Render('politica.php');
 });
 
 $App->get('/cadastro', function () {
