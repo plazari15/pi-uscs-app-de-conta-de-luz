@@ -189,15 +189,13 @@ class FacebookMessengerBot
 			// Todo: Change to preg_grep for better performance
 			foreach ( $this->args['text'] as $pattern => $answers )
 			{
-				if ( ! $this->isMatch( $ask, $pattern ) )
-					continue;
-
+				if ($this->isMatch( $ask, $pattern ) ) {
 					foreach ( $answers as $answer ) {
 						$this->messenger_response->response($answer);
 					}
-
+					return true;
+				}
 			}
-			return true;
 		}
 
 		$payload = $this->messenger->getMessagingPostbackPayload();
@@ -214,8 +212,8 @@ class FacebookMessengerBot
                 {
 					$this->messenger_response->response( $answer );
                 }
-                
-                return false;
+
+				return true;
             }
 		}
 
